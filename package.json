@@ -27,7 +27,7 @@
   "scripts": {
     "server": "http-server",
     "lint": "eslint lib/*.js",
-    "dev": "watchify ./lib/js/main.js -t babelify -o ./lib/js/bundle.js -v",
+    "dev": "watchify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js -v",
     "build": "browserify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js",
     "build-examples": "babel-node create-examples.js && npm run build"
   },
