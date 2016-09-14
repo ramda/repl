@@ -1,0 +1,30 @@
+# editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.js]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.html]
+indent_style = space
+indent_size = 2
+
+[*.css]
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Two trailing spaces => newline in GitHub-flavored markdown
+trim_trailing_whitespace = false
