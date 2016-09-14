@@ -2,6 +2,22 @@
 
 (read-eval-print-loop)
 
-Load the repl.html page in a browser.  The repl.html uses a pre-transpiled version of \_part\_ and the google traceur-
-compiler to allow several features of ES6.  Some of the pre-loaded examples use ES6 features.
+### Development
 
+To run a simple server that will host the `index.html` file:
+
+`npm run server`
+
+This will start serving the _repl_ at [localhost:8080](http://localhost:8080)
+
+To build the JavaScript bundle:
+
+`npm run build`
+
+To build the JavaScript bundle _when files change_:
+
+`npm run dev`
+
+To lint the JavaScript:
+
+`npm run lint`
