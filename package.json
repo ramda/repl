@@ -25,7 +25,7 @@
     "url": "git://github.com/ramda/ramda.github.io.git"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --reporter spec",
+    "test": "mocha",
     "server": "http-server",
     "lint": "eslint lib/*.js",
     "dev": "watchify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js -v",
