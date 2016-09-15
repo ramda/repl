@@ -27,7 +27,7 @@ describe('reporter', function() {
 
     const text = 'ramda';
 
-    it('will decorate console.clear', function() {
+    it('will intercept console.clear, clearing the in-DOM log', function() {
 
       reporter.main({
         consoleLogElement : logEl,
@@ -44,27 +44,101 @@ describe('reporter', function() {
 
     ['log', 'info', 'debug'].forEach(method => {
 
-      it(`will decorate console.${method}`, function() {
+      describe(`console.${method} interceptor`, function() {
 
-        logEl.textContent = '';
+        it('will display args in the DOM', function() {
 
-        reporter.main({
-          consoleLogElement : logEl,
-          consoleRef : consoleMock
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          consoleMock[method](text);
+
+          assert.equal(text, logEl.textContent);
+
+          consoleMock[method](text);
+
+          assert.equal(`${text}\n${text}`, logEl.textContent);
+
         });
 
-        consoleMock[method](text);
+        it('will display buffered args on multiple lines', function() {
 
-        assert.equal(text, logEl.textContent);
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
 
-        consoleMock[method](text);
+          consoleMock[method](text);
+          consoleMock[method](text);
+          consoleMock[method](text);
 
-        assert.equal(`${text}\n${text}`, logEl.textContent);
+          assert.equal(`${text}\n${text}\n${text}`, logEl.textContent);
+
+        });
+
+        it('will display string representations of Functions', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          consoleMock[method](R.identity);
+
+          assert.equal(R.identity.toString(), logEl.textContent);
+
+        });
+
+        it('will display stringified errors', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          const e = new Error('🐑');
+
+          consoleMock[method](e);
+
+          assert.equal(JSON.stringify(e), logEl.textContent);
+
+        });
+
+        it('will display stringified objects', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          const o = { baa : '🐑'};
+
+          consoleMock[method](o);
+
+          assert.equal(JSON.stringify(o), logEl.textContent);
+
+        });
+
+        it('will display stringified arrays', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          const a = ['🐑'];
+
+          consoleMock[method](a);
+
+          assert.equal(JSON.stringify(a), logEl.textContent);
+
+        });
 
       });
 
     });
-
 
   });
 
