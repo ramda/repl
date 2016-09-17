@@ -6,7 +6,7 @@ import FakeXHR from 'fake-xml-http-request';
 
 import bindShortUrlButton from '../lib/js/googl';
 
-describe.only('Clicking the "Make short URL" button', function() {
+describe('Clicking the "Make short URL" button', function() {
 
   const locationHash = 'location-hash';
 
