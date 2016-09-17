@@ -19,7 +19,8 @@
       "dependencies": {
         "acorn": {
           "version": "2.7.0",
-          "from": "acorn@>=2.1.0 <3.0.0"
+          "from": "acorn@2.7.0",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-2.7.0.tgz"
         }
       }
     },
@@ -30,7 +31,8 @@
       "dependencies": {
         "acorn": {
           "version": "3.3.0",
-          "from": "acorn@>=3.0.4 <4.0.0"
+          "from": "acorn@3.3.0",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-3.3.0.tgz"
         }
       }
     },
@@ -1192,6 +1194,11 @@
       "from": "extsprintf@1.0.2",
       "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.0.2.tgz"
     },
+    "fake-xml-http-request": {
+      "version": "1.4.0",
+      "from": "fake-xml-http-request@>=1.4.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/fake-xml-http-request/-/fake-xml-http-request-1.4.0.tgz"
+    },
     "fast-levenshtein": {
       "version": "1.1.4",
       "from": "fast-levenshtein@>=1.1.0 <2.0.0",
@@ -1384,7 +1391,8 @@
       "dependencies": {
         "glob": {
           "version": "7.0.6",
-          "from": "glob@>=7.0.3 <8.0.0"
+          "from": "glob@7.0.6",
+          "resolved": "https://registry.npmjs.org/glob/-/glob-7.0.6.tgz"
         },
         "minimatch": {
           "version": "3.0.3",
@@ -1557,7 +1565,8 @@
       "dependencies": {
         "lodash": {
           "version": "4.15.0",
-          "from": "lodash@>=4.3.0 <5.0.0"
+          "from": "lodash@4.15.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.15.0.tgz"
         }
       }
     },
@@ -2420,11 +2429,13 @@
       "dependencies": {
         "glob": {
           "version": "7.0.6",
-          "from": "glob@>=7.0.5 <8.0.0"
+          "from": "glob@7.0.6",
+          "resolved": "https://registry.npmjs.org/glob/-/glob-7.0.6.tgz"
         },
         "minimatch": {
           "version": "3.0.3",
-          "from": "minimatch@>=3.0.2 <4.0.0"
+          "from": "minimatch@3.0.3",
+          "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.3.tgz"
         }
       }
     },
@@ -2571,7 +2582,8 @@
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
-          "from": "isarray@>=1.0.0 <1.1.0"
+          "from": "isarray@1.0.0",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
         },
         "readable-stream": {
           "version": "2.1.5",

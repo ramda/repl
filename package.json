@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "eslint": "^3.5.0",
+    "fake-xml-http-request": "^1.4.0",
     "http-server": "^0.9.0",
     "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
