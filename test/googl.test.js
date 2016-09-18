@@ -11,8 +11,7 @@ describe('Clicking the "Make short URL" button', function() {
   const locationHash = 'location-hash';
 
   let btnMakeShortUrl,
-    urlOut,
-    consoleRef;
+    urlOut;
 
   let requests = [];
 
@@ -38,7 +37,7 @@ describe('Clicking the "Make short URL" button', function() {
     // The request data presumes a global location.hash
     global.location = { hash : locationHash };
 
-    consoleRef = { error : sinon.spy() };
+    console.error = sinon.spy();
 
   });
 
@@ -48,7 +47,7 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('should invoke a request for a short url', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut, consoleRef });
+    bindShortUrlButton({ btnMakeShortUrl, urlOut });
 
     btnMakeShortUrl.click();
 
@@ -59,19 +58,19 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('calls console.error when an XHR error occurs', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut, consoleRef });
+    bindShortUrlButton({ btnMakeShortUrl, urlOut });
 
     btnMakeShortUrl.click();
 
     R.head(requests).dispatchEvent({ type : 'error' });
 
-    sinon.assert.called(consoleRef.error);
+    sinon.assert.called(console.error);
 
   });
 
   it('sets success responses in the DOM', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut, consoleRef });
+    bindShortUrlButton({ btnMakeShortUrl, urlOut });
 
     btnMakeShortUrl.click();
 
