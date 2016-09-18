@@ -18,6 +18,10 @@ To build the JavaScript bundle _when files change_:
 
 `npm run dev`
 
+To run tests:
+
+`npm test`
+
 To lint the JavaScript:
 
 `npm run lint`
