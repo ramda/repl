@@ -5,7 +5,7 @@ import R from 'ramda';
 import sinon from 'sinon';
 import bindInputPanel from '../lib/js/input-panel';
 
-describe.only('Input panel', function() {
+describe('Input panel', function() {
 
   let errMsgEl,
     inputEl,
