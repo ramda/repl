@@ -1,4 +1,3 @@
-import 'jsdom-global/register';
 import assert from 'assert';
 import R from 'ramda';
 import sanctuary from 'sanctuary';
@@ -6,7 +5,7 @@ import ramdaFantasy from 'ramda-fantasy';
 
 import '../lib/js/main';
 
-describe.only('Globals', function() {
+describe('Globals', function() {
 
   it('adds a global reference to Sanctuary', function() {
 

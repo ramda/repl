@@ -1,4 +1,3 @@
-import 'jsdom-global/register';
 import assert from 'assert';
 import jsdom from 'jsdom';
 import R from 'ramda';
