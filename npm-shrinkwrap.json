@@ -751,6 +751,11 @@
       "from": "code-point-at@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/code-point-at/-/code-point-at-1.0.0.tgz"
     },
+    "codemirror": {
+      "version": "5.18.2",
+      "from": "codemirror@latest",
+      "resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.18.2.tgz"
+    },
     "colors": {
       "version": "1.0.3",
       "from": "colors@1.0.3",
@@ -1738,6 +1743,11 @@
           "resolved": "https://registry.npmjs.org/acorn/-/acorn-2.7.0.tgz"
         }
       }
+    },
+    "jsdom-global": {
+      "version": "2.1.0",
+      "from": "jsdom-global@latest",
+      "resolved": "https://registry.npmjs.org/jsdom-global/-/jsdom-global-2.1.0.tgz"
     },
     "jsesc": {
       "version": "0.5.0",

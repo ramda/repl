@@ -35,7 +35,7 @@ describe('Clicking the "Make short URL" button', function() {
     }
 
     // The request data presumes a global location.hash
-    global.location = { hash : locationHash };
+    global.location.hash = locationHash;
 
     console.error = sinon.spy();
 
