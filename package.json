@@ -27,7 +27,7 @@
   "scripts": {
     "test": "mocha",
     "server": "http-server",
-    "lint": "eslint lib/*.js",
+    "lint": "eslint lib/js/*.js; eslint test/*.js",
     "dev": "watchify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js -v",
     "build": "browserify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js"
   },
