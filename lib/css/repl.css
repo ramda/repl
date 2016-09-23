@@ -83,6 +83,7 @@ textarea {
 
 .CodeMirror {
   height: 100%;
+  line-height: 1.5;
 }
 
 /* Ramda REPL specific
@@ -91,9 +92,9 @@ textarea {
 .panel-title {
   color: #fff;
   font-weight: 500;
-  margin-left: 1em;
+  margin-left: 2em;
+  margin-bottom: 0.75em;
   display: inline-block;
-  margin-top: 0.75em;
 }
 
 .input,
@@ -174,7 +175,7 @@ textarea {
 .console-log,
 .error {
   font-size: 0.93em;
-  margin: 1em;
+  margin: 0.5em 1em;
 }
 .console-log {
   color: #888;
@@ -188,6 +189,9 @@ textarea {
 .repl-input,
 .repl-output {
   flex: 1 0 auto;
+}
+.repl-output .CodeMirror {
+  margin-left: 0.75em;
 }
 
 @media (min-width: 991px) {
