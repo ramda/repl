@@ -47,39 +47,45 @@
 </head>
 
 <body>
-    <div id="midline" class="hidden-sm hidden-xs"></div>
+    <div id="midline"></div>
 
-    <div class="main col-lg-12">
-        <div>
-            <button id="resetBtn" class="btn btn-danger btn-xs" type="reset">Reset</button>
-            <button id="mkurl" class="btn btn-primary btn-xs">Make Short URL:</button><input id="urlout" type="text" class="urltext" />
-        </div>
-        <div class="repl row">
-            <div class="repl-input col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Input</h3>
-                    </div>
-                    <div class="panel-body">
-                        <textarea class="input hidden" rows="20" cols="50"></textarea>
-                    </div>
-                </div>
+    <div class="main">
+
+      <div>
+        <button id="resetBtn" type="reset">Reset</button>
+        <button id="mkurl">Make Short URL:</button>
+        <input id="urlout" type="text" class="urltext"/>
+      </div>
+
+      <div class="repl">
+
+        <div class="repl-input">
+          <div class="panel-primary">
+            <div>
+              <h3 class="panel-title">Input</h3>
             </div>
-            <div class="repl-output col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Output</h3>
-                        <button class="btn btn-link clear-console" type="button">Clear Output</button>
-                        <button class="btn btn-link pretty-console" type="button">Pretty Output</button>
-                    </div>
-                    <div class="panel-body">
-                        <pre class="error"></pre>
-                        <pre class="console-log"></pre>
-                        <textarea class="output hidden" rows="20" cols="50"></textarea>
-                    </div>
-                </div>
+            <div class="panel-body">
+              <textarea class="input"></textarea>
             </div>
+          </div>
         </div>
+
+        <div class="repl-output col-md-6">
+          <div class="panel-primary">
+            <div>
+              <h3 class="panel-title">Output</h3>
+              <button class="clear-console" type="button">Clear Output</button>
+              <button class="pretty-console" type="button">Pretty Output</button>
+            </div>
+            <div class="panel-body">
+              <pre class="error"></pre>
+              <pre class="console-log"></pre>
+              <textarea class="output"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </div>
     <!-- /container -->
