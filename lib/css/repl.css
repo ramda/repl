@@ -89,7 +89,7 @@ textarea {
 /* Ramda REPL specific
  ============================================================================ */
 
-.panel-title {
+.repl-title {
   color: #fff;
   font-weight: 500;
   margin-left: 2em;
@@ -97,14 +97,12 @@ textarea {
   display: inline-block;
 }
 
-.input,
-.output {
+.repl-panel-body textarea {
   display: none;
 }
 
 /* Input controls */
-#resetBtn,
-#mkurl {
+.btn-alt {
   margin-top: 0.5em;
   border-radius: 3px;
   color: #fff;
@@ -116,28 +114,28 @@ textarea {
   vertical-align: middle;
 }
 
-#resetBtn {
+.btn-reset {
   margin-left: 1.5em;
   background-color: #bf0000;
   border: 1px solid #d43f3a;
 }
 
-#resetBtn:hover {
+.btn-reset:hover {
   background-color: #bf0000;
   border-color: #ac2925;
 }
 
-#mkurl {
+.btn-short-url {
   background-color: #428bca;
   border : 1px solid #357ebd;
 }
 
-#mkurl:hover {
+.btn-shurt-url:hover {
   background-color: #3276b1;
   border-color: #285e8e;
 }
 
-.urltext {
+.url-out {
   background-color: #282a36;
   color: white;
   border: none;
@@ -146,8 +144,7 @@ textarea {
 }
 
 /* Output controls */
-.clear-console,
-.pretty-console {
+.repl-btn {
   background-color: transparent;
   border-color: transparent;
   border-radius: 0;
@@ -157,16 +154,13 @@ textarea {
   padding: 6px 12px;
 }
 
-.clear-console:hover,
-.pretty-console:hover,
-.clear-console:focus,
-.pretty-console:focus {
+.repl-btn:hover,
+.repl-btn:focus {
   color: #2a6496;
   text-decoration: underline;
 }
 
-.clear-console:focus,
-.pretty-console:focus {
+.repl-btn:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -186,16 +180,20 @@ textarea {
 }
 
 /* Layout */
-.repl-input,
-.repl-output {
+.repl-panel {
   flex: 1 0 auto;
 }
-.repl-output .CodeMirror {
+.repl-panel--output .CodeMirror {
   margin-left: 0.75em;
 }
 
+main {
+  width: 100%;
+}
+
 @media (min-width: 991px) {
-  .main {
+
+  main {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -207,20 +205,23 @@ textarea {
     flex: 1 0 auto;
   }
 
-  .repl-input,
-  .repl-output {
+  .repl-panel {
     width: 50%;
   }
 
-  .repl-input .panel-primary {
-    height: 100%;
+  .repl-panel--input {
     display: flex;
     flex-direction: column;
   }
 
-  .repl-input .panel-body {
+  .repl-panel--input .panel-body {
     flex: 1 0 auto;
-    display: flex;
+    display: flex; /* Have the codemirror take the full height */
+  }
+
+  .repl-panel--input .CodeMirror {
+    height: auto;
+    flex: 1 0 auto;
   }
 
   #midline {
@@ -233,9 +234,5 @@ textarea {
     z-index: 1;
   }
 
-  .repl-input .CodeMirror {
-    height: auto;
-    flex: 1 0 auto;
-  }
 }
 
