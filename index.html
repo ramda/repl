@@ -48,47 +48,7 @@
 
 <body>
 
-
-    <main role="main">
-
-      <div id="midline"></div>
-
-      <div>
-        <button class="btn-alt btn-reset js-btn-reset" type="reset">Reset</button>
-        <button class="btn-alt btn-short-url js-btn-short-url">Make Short URL:</button>
-        <input class="url-out js-url-out" type="text" class="urltext"/>
-      </div>
-
-      <section class="repl">
-
-        <div class="repl-panel repl-panel--input">
-
-          <h3 class="repl-title">Input</h3>
-
-          <div class="repl-panel-body">
-            <textarea class="js-input"></textarea>
-          </div>
-
-        </div>
-
-        <div class="repl-panel repl-panel--output">
-
-          <h3 class="repl-title">Output</h3>
-
-          <button class="repl-btn js-btn-clear" type="button">Clear Output</button>
-          <button class="repl-btn js-btn-pretty" type="button">Pretty Output</button>
-
-          <div class="repl-panel-body">
-            <pre class="error js-error"></pre>
-            <pre class="console-log js-console-log"></pre>
-            <textarea class="js-output"></textarea>
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
+    <textarea class="ramda-repl-target"></textarea>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/edit/closebrackets.min.js"></script>
@@ -98,8 +58,8 @@
     <script src="//wzrd.in/standalone/sanctuary@latest"></script>
     <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
 
-
     <script src="lib/js/bundle.js"></script>
+
 </body>
 
 </html>
