@@ -97,10 +97,6 @@ textarea {
   display: inline-block;
 }
 
-.repl-panel-body textarea {
-  display: none;
-}
-
 /* Input controls */
 .btn-alt {
   margin-top: 0.5em;
