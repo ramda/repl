@@ -123,10 +123,11 @@ textarea {
 
 .btn-short-url {
   background-color: #428bca;
-  border : 1px solid #357ebd;
+  border: 1px solid #357ebd;
+  margin-left: 0.5em
 }
 
-.btn-shurt-url:hover {
+.btn-short-url:hover {
   background-color: #3276b1;
   border-color: #285e8e;
 }
