@@ -224,7 +224,7 @@ main {
     flex: 1 0 auto;
   }
 
-  #midline {
+  .repl-midline {
     background-color: gray;
     position: fixed;
     left: 50%;
