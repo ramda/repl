@@ -11,16 +11,11 @@ html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background-color: #282a36;
-  display: flex;
-  flex: 1 0 auto;
-  min-height: 100%;
+  background : #eee;
 }
 
 body {
   margin: 0;
-  flex: 1 0 auto;
-  display: flex;
 }
 
 pre {
@@ -77,11 +72,11 @@ textarea {
 /* Some CodeMirror overrides
  ============================================================================ */
 
-.CodeMirror-hscrollbar {
+.repl .CodeMirror-hscrollbar {
   display: none !important;
 }
 
-.CodeMirror {
+.repl .CodeMirror {
   height: 100%;
   line-height: 1.5;
 }
@@ -149,6 +144,7 @@ textarea {
   cursor: pointer;
   font-weight: normal;
   padding: 6px 12px;
+  flex: 0;
 }
 
 .repl-btn:hover,
@@ -180,12 +176,19 @@ textarea {
 .repl-panel {
   flex: 1 0 auto;
 }
+
+.repl-panel-body {
+  overflow-x: auto;
+  width: 100%;
+}
+
 .repl-panel--output .CodeMirror {
   margin-left: 0.75em;
 }
 
 .repl {
-  width: 100%;
+  background-color: #282a36;
+  position: relative;
 }
 
 @media (min-width: 991px) {
@@ -204,6 +207,8 @@ textarea {
 
   .repl-panel {
     width: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .repl-panel--input {
@@ -214,6 +219,7 @@ textarea {
   .repl-panel--input .repl-panel-body {
     flex: 1 0 auto;
     display: flex; /* Have the codemirror take the full height */
+    overflow-x: auto;
   }
 
   .repl-panel--input .CodeMirror {
@@ -223,7 +229,7 @@ textarea {
 
   .repl-midline {
     background-color: gray;
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;

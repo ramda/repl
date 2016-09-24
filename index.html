@@ -44,11 +44,36 @@
     }());
     </script>
 
+    <style>
+      /* for demonstration only */
+      .container {
+        margin : 20px auto;
+        width  : 800px;
+        box-shadow : 0px 5px 20px rgba(0,0,0,0.7);
+      }
+      .ramda-repl-target {
+        display    : block;
+        background : #333;
+        color      : #ccc;
+        padding    : 15px;
+        cursor     : pointer;
+      }
+    </style>
+
 </head>
 
 <body>
 
-    <textarea class="ramda-repl-target"></textarea>
+    <section class="container">
+      <code class="ramda-repl-target">var tomato = {firstName: '  Tomato ', data: {elapsed: 100, remaining: 1400}, id:123};
+var transformations = {
+  firstName: R.trim,
+  lastName: R.trim, // Will not get invoked.
+  data: {elapsed: R.add(1), remaining: R.add(-1)}
+};
+R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 101, remaining: 1399}, id:123}
+      </code>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/edit/closebrackets.min.js"></script>
@@ -59,6 +84,11 @@
     <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
 
     <script src="lib/js/bundle.js"></script>
+    <script>
+      document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
+        ramdaRepl(e.target);
+      });
+    </script>
 
 </body>
 
