@@ -187,20 +187,20 @@ textarea {
   margin-left: 0.75em;
 }
 
-main {
+.repl {
   width: 100%;
 }
 
 @media (min-width: 991px) {
 
-  main {
+  .repl {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     height: 100%;
   }
 
-  .repl {
+  .repl-panels {
     display: flex;
     flex: 1 0 auto;
   }
@@ -214,7 +214,7 @@ main {
     flex-direction: column;
   }
 
-  .repl-panel--input .panel-body {
+  .repl-panel--input .repl-panel-body {
     flex: 1 0 auto;
     display: flex; /* Have the codemirror take the full height */
   }
