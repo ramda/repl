@@ -34,7 +34,7 @@ describe('Clicking the "pretty" button', function() {
     btnPrettyEl.click();
 
     sinon.assert.called(output.getValue);
-    sinon.assert.calledWith(output.setValue, formattedCode);
+    sinon.assert.calledWith(output.setValue, formattedCode + 'FAIL');
 
   });
 
