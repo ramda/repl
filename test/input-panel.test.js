@@ -46,10 +46,6 @@ describe('Input panel', function() {
 
   });
 
-  afterEach(function() {
-    global.location.hash = '';
-  });
-
   it('should compile and set the input text', function() {
 
     const input = bindInputPanel({
@@ -104,39 +100,47 @@ describe('Input panel', function() {
 
   });
 
-  it('should set text by reading the queryString', function() {
+  describe('given an "initialValue" option is present', function() {
 
-    global.location.hash = '#?code=%5B1%2C2%2C3%5D'; // [1,2,3]
+    it('should compile the initial value', function() {
 
-    bindInputPanel({
-      input: inputEl,
-      evalError: errMsgEl,
-      output,
-      delay: 0
+      bindInputPanel({
+        input: inputEl,
+        evalError: errMsgEl,
+        initialValue : '[1,2,3]',
+        output,
+        delay: 0
+      });
+
+      clock.tick(20); // debounce
+
+      sinon.assert.calledWith(output.setValue, '[1, 2, 3]');
+
     });
-
-    clock.tick(20); // debounce
-
-    sinon.assert.calledWith(output.setValue, '[1, 2, 3]');
 
   });
 
-  it('should update the queryString', function() {
+  describe('given an "onChange" option is present', function() {
 
-    assert.equal('', global.location.hash);
+    it('should call the callback with the pre-compiled output', function() {
 
-    const input = bindInputPanel({
-      input: inputEl,
-      evalError: errMsgEl,
-      output,
-      delay: 0
+      const onChangeSpy = sinon.spy();
+
+      const input = bindInputPanel({
+        input: inputEl,
+        evalError: errMsgEl,
+        onChange : onChangeSpy,
+        output,
+        delay: 0
+      });
+
+      input.setValue('[1,2,3]');
+
+      clock.tick(20); // debounce
+
+      sinon.assert.calledWith(onChangeSpy, '[1,2,3]');
+
     });
-
-    input.setValue('[1,2,3]');
-
-    clock.tick(20); // debounce
-
-    assert.equal('#?code=%5B1%2C2%2C3%5D', global.location.hash);
 
   });
 

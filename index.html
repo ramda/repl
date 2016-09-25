@@ -75,6 +75,10 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
       </code>
     </section>
 
+    <!-- For demonstrating persist-to-queryString -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.18.1/URI.min.js"></script>
+
+    <!-- REPL deps -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/edit/closebrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/show-hint.min.js"></script>
@@ -84,10 +88,26 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
     <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
 
     <script src="lib/js/bundle.js"></script>
+
     <script>
+
       document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
-        ramdaRepl(e.target);
+
+        ramdaRepl(e.target, {
+
+          // If unset, initialValue will use the value or textcontent of the
+          // target element.
+          initialValue: URI.decode(window.location.hash).substring(2),
+
+          // Called with the pre-compiled content
+          onChange : function(code) {
+            window.location.hash = '?' + URI.encode(code);
+          }
+
+        });
+
       });
+
     </script>
 
 </body>
