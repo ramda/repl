@@ -9,6 +9,8 @@ import bindShortUrlButton from '../lib/js/googl';
 describe('Clicking the "Make short URL" button', function() {
 
   const locationHash = 'location-hash';
+  const apiUrl       = 'http://ramda-short-api.com';
+  const returnUrl    = 'http://ramda-return.com';
 
   let btnMakeShortUrl,
     urlOut;
@@ -47,9 +49,6 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('should invoke a request for a short url', function() {
 
-    const apiUrl = 'http://ramda-short-api.com';
-    const returnUrl = 'http://ramda-return.com';
-
     bindShortUrlButton({
       btnMakeShortUrl,
       urlOut,
@@ -70,7 +69,12 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('calls console.error when an XHR error occurs', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut });
+    bindShortUrlButton({
+      btnMakeShortUrl,
+      urlOut,
+      apiUrl,
+      returnUrl
+    });
 
     btnMakeShortUrl.click();
 
@@ -82,7 +86,12 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('sets success responses in the DOM', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut });
+    bindShortUrlButton({
+      btnMakeShortUrl,
+      urlOut,
+      apiUrl,
+      returnUrl
+    });
 
     btnMakeShortUrl.click();
 
@@ -92,6 +101,20 @@ describe('Clicking the "Make short URL" button', function() {
     request.respond(200, { 'Content-Type': 'text/plain' }, JSON.stringify(responseBody));
 
     assert.equal(responseBody.id, urlOut.value);
+
+  });
+
+  it('hides the controls if the configuration is not complete', function() {
+
+    bindShortUrlButton({
+      btnMakeShortUrl,
+      urlOut,
+      apiUrl : undefined,
+      returnUrl
+    });
+
+    assert.equal('none', btnMakeShortUrl.style.display);
+    assert.equal('none', urlOut.style.display);
 
   });
 
