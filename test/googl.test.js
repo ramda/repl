@@ -47,12 +47,24 @@ describe('Clicking the "Make short URL" button', function() {
 
   it('should invoke a request for a short url', function() {
 
-    bindShortUrlButton({ btnMakeShortUrl, urlOut });
+    const apiUrl = 'http://ramda-short-api.com';
+    const returnUrl = 'http://ramda-return.com';
+
+    bindShortUrlButton({
+      btnMakeShortUrl,
+      urlOut,
+      apiUrl,
+      returnUrl
+    });
 
     btnMakeShortUrl.click();
 
+    const request = R.head(requests);
+
     assert.equal(1, requests.length);
-    assert(R.contains(global.location.hash, R.head(requests).requestBody));
+    assert(R.contains(global.location.hash, request.requestBody));
+    assert(R.contains(returnUrl, request.requestBody));
+    assert(R.contains(apiUrl, request.url));
 
   });
 
