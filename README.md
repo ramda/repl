@@ -1,6 +1,9 @@
-# repl
+Ramda Repl
+==========
 
-(read-eval-print-loop)
+A repl (read-eval-print-loop) for [Ramda](http://ramdajs.com/)
+
+[![Build Status](https://travis-ci.org/ramda/repl.svg?branch=master)](https://travis-ci.org/ramda/repl)
 
 ### Development
 
