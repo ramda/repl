@@ -2708,9 +2708,9 @@
       "resolved": "https://registry.npmjs.org/randombytes/-/randombytes-2.0.3.tgz"
     },
     "rdom": {
-      "version": "0.5.1",
-      "from": "rdom@>=0.5.1 <0.6.0",
-      "resolved": "https://registry.npmjs.org/rdom/-/rdom-0.5.1.tgz"
+      "version": "0.6.0",
+      "from": "rdom@latest",
+      "resolved": "https://registry.npmjs.org/rdom/-/rdom-0.6.0.tgz"
     },
     "read-only-stream": {
       "version": "2.0.0",
