@@ -44,56 +44,73 @@
     }());
     </script>
 
+    <style>
+      /* for demonstration only */
+      .container {
+        margin : 20px auto;
+        width  : 800px;
+        box-shadow : 0px 5px 20px rgba(0,0,0,0.7);
+      }
+      .ramda-repl-target {
+        display    : block;
+        background : #333;
+        color      : #ccc;
+        padding    : 15px;
+        cursor     : pointer;
+      }
+    </style>
+
 </head>
 
 <body>
-    <div id="midline" class="hidden-sm hidden-xs"></div>
 
-    <div class="main col-lg-12">
-        <div>
-            <button id="resetBtn" class="btn btn-danger btn-xs" type="reset">Reset</button>
-            <button id="mkurl" class="btn btn-primary btn-xs">Make Short URL:</button><input id="urlout" type="text" class="urltext" />
-        </div>
-        <div class="repl row">
-            <div class="repl-input col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Input</h3>
-                    </div>
-                    <div class="panel-body">
-                        <textarea class="input hidden" rows="20" cols="50"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="repl-output col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Output</h3>
-                        <button class="btn btn-link clear-console" type="button">Clear Output</button>
-                        <button class="btn btn-link pretty-console" type="button">Pretty Output</button>
-                    </div>
-                    <div class="panel-body">
-                        <pre class="error"></pre>
-                        <pre class="console-log"></pre>
-                        <textarea class="output hidden" rows="20" cols="50"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="container">
+      <code class="ramda-repl-target">var tomato = {firstName: '  Tomato ', data: {elapsed: 100, remaining: 1400}, id:123};
+var transformations = {
+  firstName: R.trim,
+  lastName: R.trim, // Will not get invoked.
+  data: {elapsed: R.add(1), remaining: R.add(-1)}
+};
+R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 101, remaining: 1399}, id:123}
+      </code>
+    </section>
 
-    </div>
-    <!-- /container -->
+    <!-- For demonstrating persist-to-queryString -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.18.1/URI.min.js"></script>
 
+    <!-- REPL deps -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/edit/closebrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/show-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/javascript-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
-    <script src="//wzrd.in/standalone/sanctuary@latest"></script>
-    <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
-
 
     <script src="lib/js/bundle.js"></script>
+
+    <script>
+
+      document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
+
+        ramdaRepl(e.target, {
+
+          apiUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk',
+          returnUrl: 'http://ramdajs.com/repl/',
+
+          // If unset, initialValue will use the value or textcontent of the
+          // target element.
+          initialValue: URI.decode(window.location.hash).substring(2),
+
+          // Called with the pre-compiled content
+          onChange : function(code) {
+            window.location.hash = '?' + URI.encode(code);
+          }
+
+        });
+
+      });
+
+    </script>
+
 </body>
 
 </html>
