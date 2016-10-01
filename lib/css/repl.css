@@ -1,3 +1,10 @@
+/*
+ * CodeMirror
+ ============================================================================ */
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/dracula.css';
+@import 'codemirror/addon/hint/show-hint.css';
+
 /* Adapted from Normalize.css
  ============================================================================ */
 
