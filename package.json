@@ -30,7 +30,7 @@
     "lint": "eslint lib/js/*.js; eslint test/*.js",
     "dev": "watchify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./dist/bundle.js -v",
     "build": "browserify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./dist/bundle.js",
-    "style": "postcss -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/bundle.css ./lib/css/repl.css"
+    "style": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/bundle.css ./lib/css/repl.css"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
@@ -44,6 +44,7 @@
     "mocha": "^3.0.2",
     "postcss": "^5.2.4",
     "postcss-cli": "^2.6.0",
+    "postcss-import": "^8.1.2",
     "sinon": "^1.17.5",
     "watchify": "^3.7.0"
   }

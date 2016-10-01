@@ -8,7 +8,6 @@
   "globals": {
     "Symbol": true,
     "R": true,
-    "CodeMirror": true,
     "sanctuary": true,
     "ramdaFantasy": true
 
