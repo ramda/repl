@@ -48,16 +48,16 @@ var textarea = _rdom2.default.textarea;
 var pre = _rdom2.default.pre;
 
 
-var btnReset = button({ className: 'btn-alt btn-reset js-btn-reset' }, ['Reset']);
+var btnReset = button({ className: 'repl-btn-alt repl-btn-reset js-btn-reset' }, ['Reset']);
 
-var btnShortUrl = button({ className: 'btn-alt btn-short-url js-btn-short-url' }, ['Make Short URL:']);
+var btnShortUrl = button({ className: 'repl-btn-alt repl-btn-short-url js-btn-short-url' }, ['Make Short URL:']);
 
 var btnClear = button({ className: 'repl-btn js-btn-clear', type: 'button' }, ['Clear Output']);
 
 var btnPretty = button({ className: 'repl-btn js-btn-pretty', type: 'button' }, ['Pretty Output']);
 
 var urlOut = input({
-  className: 'url-out js-url-out',
+  className: 'repl-url-out js-url-out',
   type: 'text'
 }, []);
 
@@ -65,7 +65,7 @@ var urlOut = input({
 var inputPanel = div({ className: 'repl-panel repl-panel--input' }, [h3({ className: 'repl-title' }, ['Input']), div({ className: 'repl-panel-body' }, [textarea({ className: 'js-input' }, [])])]);
 
 // The output panel
-var outputPanel = div({ className: 'repl-panel repl-panel--output' }, [h3({ className: 'repl-title' }, ['Output']), btnClear, btnPretty, div({ className: 'repl-panel-body' }, [pre({ className: 'error js-error' }, []), pre({ className: 'console-log js-console-log' }, []), textarea({ className: 'js-output' }, [])])]);
+var outputPanel = div({ className: 'repl-panel repl-panel--output' }, [h3({ className: 'repl-title' }, ['Output']), btnClear, btnPretty, div({ className: 'repl-panel-body' }, [pre({ className: 'repl-error js-error' }, []), pre({ className: 'repl-console-log js-console-log' }, []), textarea({ className: 'js-output' }, [])])]);
 
 exports.default = div({ className: 'repl' }, [
 // The vertical line that splits the two panels

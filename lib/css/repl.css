@@ -1,70 +1,65 @@
 /* Adapted from Normalize.css
  ============================================================================ */
 
-* {
+.repl *:not(class^='CodeMirror') {
   box-sizing: border-box;
 }
 
-html {
+.repl {
+  box-sizing: border-box;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background : #eee;
 }
 
-body {
-  margin: 0;
-}
-
-pre {
+.repl pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
-button,
-input,
-textarea {
+.repl button,
+.repl input,
+.repl textarea {
   font-family: sans-serif;
   font-size: 100%;
   line-height: 1.15;
-  margin: 0;
 }
 
-button,
-input {
+.repl button,
+.repl input {
   overflow: visible;
 }
 
-button {
+.repl button {
   text-transform: none;
 }
 
-button,
-html [type="button"],
-[type="reset"] {
+.repl button,
+.repl [type="button"],
+.repl [type="reset"] {
   -webkit-appearance: button;
 }
 
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner {
+.repl button::-moz-focus-inner,
+.repl [type="button"]::-moz-focus-inner,
+.repl [type="reset"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring {
+.repl button:-moz-focusring,
+.repl [type="button"]:-moz-focusring,
+.repl [type="reset"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-textarea {
+.repl textarea {
   overflow: auto;
 }
 
-::-webkit-file-upload-button {
+.repl ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
@@ -93,7 +88,7 @@ textarea {
 }
 
 /* Input controls */
-.btn-alt {
+.repl-btn-alt {
   margin-top: 0.5em;
   border-radius: 3px;
   color: #fff;
@@ -105,29 +100,29 @@ textarea {
   vertical-align: middle;
 }
 
-.btn-reset {
+.repl-btn-reset {
   margin-left: 1.5em;
   background-color: #bf0000;
   border: 1px solid #d43f3a;
 }
 
-.btn-reset:hover {
+.repl-btn-reset:hover {
   background-color: #bf0000;
   border-color: #ac2925;
 }
 
-.btn-short-url {
+.repl-btn-short-url {
   background-color: #428bca;
   border: 1px solid #357ebd;
   margin-left: 0.5em
 }
 
-.btn-short-url:hover {
+.repl-btn-short-url:hover {
   background-color: #3276b1;
   border-color: #285e8e;
 }
 
-.url-out {
+.repl-url-out {
   background-color: #282a36;
   color: white;
   border: none;
@@ -159,16 +154,16 @@ textarea {
 }
 
 /* Feedback */
-.console-log,
-.error {
+.repl-console-log,
+.repl-error {
   font-size: 0.93em;
   margin: 0.5em 1em;
 }
-.console-log {
+.repl-console-log {
   color: #888;
 }
 
-.error {
+.repl-error {
   color: red;
 }
 
