@@ -21,6 +21,10 @@ To build the JavaScript bundle _when files change_:
 
 `npm run dev`
 
+to build the CSS bundle:
+
+`npm run style`
+
 To run tests:
 
 `npm test`
