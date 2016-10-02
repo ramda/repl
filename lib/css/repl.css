@@ -166,6 +166,12 @@
   font-size: 0.93em;
   margin: 0.5em 1em;
 }
+
+.repl-console-log:empty,
+.repl-error:empty {
+  margin : 0;
+}
+
 .repl-console-log {
   color: #888;
 }
