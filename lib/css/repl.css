@@ -166,6 +166,9 @@
 .repl-error {
   font-size: 0.93em;
   margin: 0.5em 1em;
+  border: 0;
+  background: transparent;
+  padding: 0;
 }
 
 .repl-console-log:empty,
