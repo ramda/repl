@@ -18,27 +18,6 @@
 
     <link rel="stylesheet" href="dist/bundle.css">
 
-    <!-- load ramda.js -->
-    <script>
-    (function() {
-      var r = document.createElement('script');
-      var rx = /^\d+\.\d+(\.\d+)?$/;
-      var version = 'latest';
-      location.search.substr(1).split('&').forEach(function(pair) {
-        var ps = pair.split('=');
-        if (ps[0] === 'v') {
-          if (rx.test(ps[1])) {
-            version = ps[1];
-          }
-        }
-      });
-      r.id = 'r';
-      var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
-      r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
-      document.head.appendChild(r);
-    }());
-    </script>
-
     <style>
       /* for demonstration only */
       * {
@@ -90,25 +69,63 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
     <script>
 
-      document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
+      (function() {
 
-        ramdaRepl(e.target, {
+        var ramdaUrl;
 
-          apiUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk',
-          returnUrl: 'http://ramdajs.com/repl/',
-
-          // If unset, initialValue will use the value or textcontent of the
-          // target element.
-          initialValue: URI.decode(window.location.hash).substring(2),
-
-          // Called with the pre-compiled content
-          onChange : function(code) {
-            window.location.hash = '?' + URI.encode(code);
+        // var r = document.createElement('script');
+        var rx = /^\d+\.\d+(\.\d+)?$/;
+        var version = 'latest';
+        location.search.substr(1).split('&').forEach(function(pair) {
+          var ps = pair.split('=');
+          if (ps[0] === 'v') {
+            if (rx.test(ps[1])) {
+              version = ps[1];
+            }
           }
+        });
+
+        // r.id = 'r';
+        var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
+
+        // r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
+        // document.head.appendChild(r);
+        ramdaUrl = protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+
+        document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
+
+          ramdaRepl(e.target, {
+
+            apiUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk',
+            returnUrl: 'http://ramdajs.com/repl/',
+
+            // If unset, initialValue will use the value or textcontent of the
+            // target element.
+            initialValue: URI.decode(window.location.hash).substring(2),
+
+            // Called with the pre-compiled content
+            onChange : function(code) {
+              window.location.hash = '?' + URI.encode(code);
+            },
+
+            // Required.
+            // This is a url to a ramda script. It will be loaded before the
+            // other scripts.
+            ramdaUrl: ramdaUrl,
+
+            // Optional.
+            // Here we can declare a list of libraries that we wish to have
+            // loaded and exposed in the repl.
+            scripts: [
+              { src : 'http://wzrd.in/standalone/sanctuary@latest' },
+              { src : 'http://wzrd.in/standalone/ramda-fantasy@latest' }
+            ]
+
+          });
 
         });
 
-      });
+      }());
 
     </script>
 
