@@ -138,6 +138,41 @@
   vertical-align: middle;
 }
 
+/* Loading state */
+.repl textarea {
+  visibility : hidden;
+}
+
+@keyframes repl-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.repl-spinner {
+  display: none;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #fff;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  animation:repl-spin 2s linear infinite;
+}
+
+.repl-spinner:before {
+  content: '';
+  display: block;
+  width: 0.25em;
+  height: 0.25em;
+  background: #282a36;
+}
+
+.repl-loading .repl-spinner {
+  display: block;
+}
+
 /* Output controls */
 .repl-btn {
   background-color: transparent;

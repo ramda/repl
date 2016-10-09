@@ -109,16 +109,25 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             },
 
             // Required.
-            // This is a url to a ramda script. It will be loaded before the
-            // other scripts.
-            ramdaUrl: ramdaUrl,
+            // As ramda may be a dependency for other scripts, it will
+            // be intentionally loaded before any other script.
+            ramdaScript: {
+              src  : ramdaUrl,
+              name : 'ramda@' + version
+            },
 
             // Optional.
             // Here we can declare a list of libraries that we wish to have
             // loaded and exposed in the repl.
             scripts: [
-              { src : 'http://wzrd.in/standalone/sanctuary@latest' },
-              { src : 'http://wzrd.in/standalone/ramda-fantasy@latest' }
+              {
+                src : 'http://wzrd.in/standalone/sanctuary@latest',
+                name : 'sanctuary@latest'
+              },
+              {
+                src : 'http://wzrd.in/standalone/ramda-fantasy@latest' + 'x',
+                name : 'ramda-fantasy@latest'
+              }
             ]
 
           });
