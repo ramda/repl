@@ -10,6 +10,7 @@
     "babylon": "6.11.2",
     "browserify": "^13.1.0",
     "debounce": "1.0.0",
+    "load-script": "^1.0.0",
     "pretty-js": "^0.1.8",
     "ramda": "0.22.1",
     "ramda-fantasy": "0.7.0",

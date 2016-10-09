@@ -2222,6 +2222,11 @@
       "from": "load-json-file@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz"
     },
+    "load-script": {
+      "version": "1.0.0",
+      "from": "load-script@latest",
+      "resolved": "https://registry.npmjs.org/load-script/-/load-script-1.0.0.tgz"
+    },
     "lodash": {
       "version": "4.16.2",
       "from": "lodash@>=4.2.0 <5.0.0",
