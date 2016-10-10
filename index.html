@@ -73,7 +73,6 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
         var ramdaUrl;
 
-        // var r = document.createElement('script');
         var rx = /^\d+\.\d+(\.\d+)?$/;
         var version = 'latest';
         location.search.substr(1).split('&').forEach(function(pair) {
@@ -85,7 +84,6 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
           }
         });
 
-        // r.id = 'r';
         var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
 
         // r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
