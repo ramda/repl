@@ -71,6 +71,7 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
       (function() {
 
+
         var ramdaUrl;
 
         var rx = /^\d+\.\d+(\.\d+)?$/;
@@ -86,8 +87,6 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
         var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
 
-        // r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
-        // document.head.appendChild(r);
         ramdaUrl = protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
 
         document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
@@ -105,6 +104,15 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             onChange : function(code) {
               window.location.hash = '?' + URI.encode(code);
             },
+
+            // The following config defines scripts that will be dynamically
+            // loaded upon creating the REPL. Each has the following properties:
+            //
+            // src      - The source of the script, a URL
+            // name     - A name for the script, used to present an error
+            // global   - (Optional) a name of a global that the script introduces
+            // exposeAs - (Optional) a name that can alias the global
+            // expose   - (Optional) a list of methods to expose globally
 
             // Required.
             // As ramda may be a dependency for other scripts, it will
