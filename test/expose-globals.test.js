@@ -22,7 +22,7 @@ describe('Expose Globals:', function() {
 
       const initialKeys = R.keys(mockWindow);
 
-      expose(script, mockWindow);
+      expose(mockWindow, script);
 
       const nextKeys = R.keys(mockWindow);
 
@@ -46,7 +46,7 @@ describe('Expose Globals:', function() {
 
       const initialKeys = R.keys(mockWindow);
 
-      expose(script, mockWindow);
+      expose(mockWindow, script);
 
       const nextKeys = R.keys(mockWindow);
 
@@ -68,7 +68,7 @@ describe('Expose Globals:', function() {
 
       const mockWindow = { R };
 
-      expose(script, mockWindow);
+      expose(mockWindow, script);
 
       const ramdaKeys = R.difference(R.keys(R), ['__', 'toString']);
 
@@ -98,7 +98,7 @@ describe('Expose Globals:', function() {
 
       const initialKeys = R.keys(mockWindow);
 
-      expose(script, mockWindow);
+      expose(mockWindow, script);
 
       const nextKeys = R.keys(mockWindow);
 
@@ -137,7 +137,7 @@ describe('Expose Globals:', function() {
 
       const initialKeys = R.keys(mockWindow);
 
-      expose(script, mockWindow);
+      expose(mockWindow, script);
 
       const nextKeys = R.keys(mockWindow);
 
