@@ -6,9 +6,9 @@ describe('Load scripts', function() {
   it('will load Ramda before any other script', function() {
 
     const config = {
-      ramdaScript : { src : '/fake/ramda.js', name : 'ramda' },
+      ramdaScript : { src : '/fake/ramda.js' },
       scripts : [
-        { src : '/fake/jamda.js', name : 'jamda' }
+        { src : '/fake/jamda.js' }
       ]
     };
 

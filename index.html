@@ -109,7 +109,6 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             // loaded upon creating the REPL. Each has the following properties:
             //
             // src      - The source of the script, a URL
-            // name     - A name for the script, used to present an error
             // global   - (Optional) a name of a global that the script introduces
             // exposeAs - (Optional) a name that can alias the global
             // expose   - (Optional) a list of methods to expose globally
@@ -119,7 +118,6 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             // be intentionally loaded before any other script.
             ramdaScript: {
               src    : ramdaUrl,
-              name   : 'ramda@' + version,
               global : 'R'
             },
 
@@ -128,14 +126,12 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             // loaded and exposed in the repl.
             scripts: [
               {
-                src      : 'http://wzrd.in/standalone/sanctuary@latest',
-                name     : 'sanctuary@latest',
+                src      : 'http://wzrd.in/standalone/sanctuary@latestx',
                 global   : 'sanctuary',
                 exposeAs : 'S'
               },
               {
                 src    : 'http://wzrd.in/standalone/ramda-fantasy@latest',
-                name   : 'ramda-fantasy@latest',
                 global : 'ramdaFantasy',
                 expose : [
                   'Either',
