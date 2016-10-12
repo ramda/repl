@@ -71,23 +71,28 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
       (function() {
 
+        // --------------------------------------------------------------------
 
-        var ramdaUrl;
-
+        // Regex for matching version strings
+        // Example match: "0.21.123"
         var rx = /^\d+\.\d+(\.\d+)?$/;
-        var version = 'latest';
-        location.search.substr(1).split('&').forEach(function(pair) {
-          var ps = pair.split('=');
-          if (ps[0] === 'v') {
-            if (rx.test(ps[1])) {
-              version = ps[1];
-            }
-          }
-        });
+
+        // :: String, String -> String
+        function toVersion(acc, pair) {
+
+          var splitPair = pair.split('=');
+
+          return splitPair[0] === 'v' && rx.test(splitPair[1]) ?  splitPair[1] : acc;
+
+        }
+
+        var version = location.search.substr(1).split('&').reduce(toVersion, 'latest');
 
         var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
 
-        ramdaUrl = protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+        var ramdaUrl = protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+
+        // --------------------------------------------------------------------
 
         document.querySelector('.ramda-repl-target').addEventListener('click', function(e) {
 
