@@ -88,9 +88,7 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
 
         var version = location.search.substr(1).split('&').reduce(toVersion, 'latest');
 
-        var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
-
-        var ramdaUrl = protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+        var ramdaUrl = '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
 
         // --------------------------------------------------------------------
 
@@ -131,12 +129,12 @@ R.evolve(transformations, tomato); //=> {firstName: 'Tomato', data: {elapsed: 10
             // loaded and exposed in the repl.
             scripts: [
               {
-                src      : 'http://wzrd.in/standalone/sanctuary@latest',
+                src      : '//wzrd.in/standalone/sanctuary@latest',
                 global   : 'sanctuary',
                 exposeAs : 'S'
               },
               {
-                src    : 'http://wzrd.in/standalone/ramda-fantasy@latest',
+                src    : '//wzrd.in/standalone/ramda-fantasy@latest',
                 global : 'ramdaFantasy',
                 expose : [
                   'Either',
