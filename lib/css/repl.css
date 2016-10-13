@@ -138,6 +138,50 @@
   vertical-align: middle;
 }
 
+/* Loading state */
+.repl textarea {
+
+  /*
+   * The following rules will interfere with CodeMirror:
+   * visibility: hidden;
+   * display: none;
+   */
+
+  resize: none;
+  background: #282a36;
+  border: transparent;
+}
+
+@keyframes repl-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.repl-spinner {
+  display: none;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  animation:repl-spin 500ms linear infinite;
+}
+
+.repl-spinner:before {
+  content: '';
+  display: block;
+  width: 0.25em;
+  height: 0.25em;
+  background: #282a36;
+}
+
+.repl-loading .repl-spinner {
+  display: block;
+}
+
 /* Output controls */
 .repl-btn {
   background-color: transparent;
