@@ -61,9 +61,10 @@ var _rdom2 = _interopRequireDefault(_rdom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_rdom2.default.addTags(['pre'], _rdom2.default);
+_rdom2.default.addTags(['pre', 'header'], _rdom2.default);
 
 var h3 = _rdom2.default.h3;
+var header = _rdom2.default.header;
 var div = _rdom2.default.div;
 var input = _rdom2.default.input;
 var button = _rdom2.default.button;
@@ -71,13 +72,13 @@ var textarea = _rdom2.default.textarea;
 var pre = _rdom2.default.pre;
 
 
-var btnReset = button({ className: 'repl-btn-alt repl-btn-reset js-btn-reset' }, ['Reset']);
+var btnReset = button({ className: 'repl-btn repl-btn-danger repl-btn-reset js-btn-reset' }, ['Clear']);
 
-var btnShortUrl = button({ className: 'repl-btn-alt repl-btn-short-url js-btn-short-url' }, ['Make Short URL:']);
+var btnShortUrl = button({ className: 'repl-btn repl-btn-short-url js-btn-short-url' }, ['Share']);
 
-var btnClear = button({ className: 'repl-btn js-btn-clear', type: 'button' }, ['Clear Output']);
+var btnClear = button({ className: 'repl-btn repl-btn-danger js-btn-clear', type: 'button' }, ['Clear']);
 
-var btnPretty = button({ className: 'repl-btn js-btn-pretty', type: 'button' }, ['Pretty Output']);
+var btnPretty = button({ className: 'repl-btn js-btn-pretty', type: 'button' }, ['Tidy']);
 
 var urlOut = input({
   className: 'repl-url-out js-url-out',
@@ -85,14 +86,14 @@ var urlOut = input({
 }, []);
 
 // The input panel
-var inputPanel = div({ className: 'repl-panel repl-panel--input' }, [h3({ className: 'repl-title' }, ['Input']), div({ className: 'repl-panel-body' }, [textarea({ className: 'js-input' }, [])])]);
+var inputPanel = div({ className: 'repl-panel repl-panel--input' }, [header({ className: 'repl-panel-header' }, [h3({ className: 'repl-title' }, ['Input']), btnReset, btnShortUrl, urlOut]), div({ className: 'repl-panel-body' }, [textarea({ className: 'js-input' }, [])])]);
 
 // The output panel
-var outputPanel = div({ className: 'repl-panel repl-panel--output' }, [h3({ className: 'repl-title' }, ['Output']), btnClear, btnPretty, div({ className: 'repl-panel-body' }, [pre({ className: 'repl-error js-error' }, []), pre({ className: 'repl-console-log js-console-log' }, []), textarea({ className: 'js-output' }, [])])]);
+var outputPanel = div({ className: 'repl-panel repl-panel--output' }, [header({ className: 'repl-panel-header' }, [h3({ className: 'repl-title' }, ['Output']), btnClear, btnPretty]), div({ className: 'repl-panel-body' }, [pre({ className: 'repl-error js-error' }, []), pre({ className: 'repl-console-log js-console-log' }, []), textarea({ className: 'js-output' }, [])])]);
 
 exports.default = div({ className: 'repl repl-loading' }, [
 // The vertical line that splits the two panels
-div({ className: 'repl-midline' }, []), div({}, [btnReset, btnShortUrl, urlOut]), div({ className: 'repl-panels' }, [inputPanel, outputPanel]),
+div({ className: 'repl-midline' }, []), div({ className: 'repl-panels' }, [inputPanel, outputPanel]),
 // The loading spinner
 div({ className: 'repl-spinner', title: 'Loading' }, [])]);
 
