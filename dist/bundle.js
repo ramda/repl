@@ -72,7 +72,7 @@ var textarea = _rdom2.default.textarea;
 var pre = _rdom2.default.pre;
 
 
-var btnReset = button({ className: 'repl-btn repl-btn-danger repl-btn-reset js-btn-reset' }, ['Clear']);
+var btnReset = button({ className: 'repl-btn repl-btn-danger repl-btn-reset js-btn-reset' }, ['Reset']);
 
 var btnShortUrl = button({ className: 'repl-btn repl-btn-short-url js-btn-short-url' }, ['Share']);
 
@@ -82,6 +82,8 @@ var btnPretty = button({ className: 'repl-btn js-btn-pretty', type: 'button' }, 
 
 var urlOut = input({
   className: 'repl-url-out js-url-out',
+  required: 'required',
+  tabIndex: -1,
   type: 'text'
 }, []);
 
