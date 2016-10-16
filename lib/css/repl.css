@@ -17,6 +17,10 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.15;
+  background-color: #282a36;
+  position: relative;
+  flex-direction: column;
+  flex: 1 0 auto;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -134,6 +138,7 @@
   background-color: #282a36;
   color: white;
   border: none;
+  border: 2px solid pink;
   font-size: 15px;
   vertical-align: middle;
 }
@@ -229,68 +234,67 @@
 }
 
 /* Layout */
+.repl {
+  height: 100%;
+  display: flex;
+}
+
+.repl-panels {
+  display: flex;
+  flex: 1 0 auto;
+  height : 100%;
+}
+
 .repl-panel {
   flex: 1 0 auto;
+  display : flex;
+  width: 50%;
+  flex-direction: column;
 }
 
 .repl-panel-body {
-  overflow-x: auto;
-  width: 100%;
+  overflow: auto;
 }
 
 .repl-panel--output .CodeMirror {
   margin-left: 0.75em;
 }
 
-.repl {
-  background-color: #282a36;
-  position: relative;
+.repl-midline {
+  background-color: gray;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  z-index: 1;
 }
 
-@media (min-width: 991px) {
+/*
+ * Given a page less than 991px wide the panels will be stacked rather than
+ * positioned side-by-side
+ */
+@media (max-width: 991px) {
 
-  .repl {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    min-height: 100%;
+  .repl-midline {
+    display: none;
   }
 
   .repl-panels {
-    display: flex;
-    flex: 1 0 auto;
-  }
-
-  .repl-panel {
-    width: 50%;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .repl-panel--input {
-    display: flex;
     flex-direction: column;
   }
 
-  .repl-panel--input .repl-panel-body {
-    flex: 1 0 auto;
-    display: flex; /* Have the codemirror take the full height */
-    overflow-x: auto;
+  .repl-panel {
+    width: 100%;
+    min-height: 0;
   }
 
-  .repl-panel--input .CodeMirror {
-    height: auto;
-    flex: 1 0 auto;
+  .repl-panel--input {
+    flex: 0 0 auto;
   }
 
-  .repl-midline {
-    background-color: gray;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    z-index: 1;
+  .repl-panel--output {
+    flex: 0 1 auto;
   }
 
 }
