@@ -107,11 +107,22 @@
 
 /* Input controls */
 .repl-url-out {
-  background: transparent;
-  color: #f8f8f2;
+  background: #44475a;
+  color: #44475a;
   border: none;
+  border-radius: 1px;
   font-size: 1em;
   vertical-align: middle;
+  padding: .2em;
+  outline: none;
+}
+
+.repl-url-out:valid {
+  background: #f8f8f2;
+}
+
+.repl-url-out:invalid {
+  visibility: hidden;
 }
 
 /* Loading state */
