@@ -90,56 +90,27 @@
 /* Ramda REPL specific
  ============================================================================ */
 
+.repl-panel-header {
+  background : #44475a;
+}
+
 .repl-title {
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.2em;
-  margin-left: 2em;
-  margin-bottom: 0.75em;
+  color: #f8f8f2;
+  font-weight: 800;
+  font-size: 1em;
+  line-height: 1.15;
+  padding: .5em .5em .4em 2em;
+  margin: 0;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 /* Input controls */
-.repl-btn-alt {
-  margin-top: 0.5em;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  font-size : 0.9em;
-  line-height: 1.5;
-  padding: 1px 5px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.repl-btn-reset {
-  margin-left: 1.5em;
-  background-color: #bf0000;
-  border: 1px solid #d43f3a;
-}
-
-.repl-btn-reset:hover {
-  background-color: #bf0000;
-  border-color: #ac2925;
-}
-
-.repl-btn-short-url {
-  background-color: #428bca;
-  border: 1px solid #357ebd;
-  margin-left: 0.5em
-}
-
-.repl-btn-short-url:hover {
-  background-color: #3276b1;
-  border-color: #285e8e;
-}
-
 .repl-url-out {
-  background-color: #282a36;
-  color: white;
+  background: transparent;
+  color: #f8f8f2;
   border: none;
-  border: 2px solid pink;
-  font-size: 15px;
+  font-size: 1em;
   vertical-align: middle;
 }
 
@@ -190,24 +161,49 @@
 /* Output controls */
 .repl-btn {
   background-color: transparent;
-  border-color: transparent;
-  border-radius: 0;
-  color: #428bca;
+  border: 0;
+  color: #f8f8f2;
   cursor: pointer;
   font-weight: normal;
-  padding: 6px 12px;
+  font-size: 1em;
   flex: 0;
+  position: relative;
+  padding: .5em .5em .4em;
 }
 
-.repl-btn:hover,
-.repl-btn:focus {
-  color: #2a6496;
-  text-decoration: underline;
+.repl-btn::after,
+.repl-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #8be9fd;
+  opacity: 0;
+  transition: all 30ms ease-in-out;
+}
+
+
+.repl-btn:hover::after,
+.repl-btn:focus::after {
+  height: 4px;
+  opacity: 1;
 }
 
 .repl-btn:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+}
+
+.repl-btn-danger:hover,
+.repl-btn-danger:focus {
+  color: #ff5555;
+}
+
+.repl-btn-danger::after,
+.repl-btn-danger::after {
+  background: #ff5555;
 }
 
 /* Feedback */
@@ -226,11 +222,11 @@
 }
 
 .repl-console-log {
-  color: #888;
+  color: #6272a4;
 }
 
 .repl-error {
-  color: red;
+  color: #ff5555;
 }
 
 /* Layout */
@@ -261,12 +257,12 @@
 }
 
 .repl-midline {
-  background-color: gray;
+  background-color: #44475a;
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 2px;
   z-index: 1;
 }
 
