@@ -84,7 +84,6 @@
 
 .repl .CodeMirror {
   height: auto;
-  width: 100%;
   line-height: 1.5;
 }
 
@@ -267,7 +266,14 @@
 .repl-panel-body {
   overflow: auto;
   flex: 1 1 auto;
-  display: flex;
+}
+
+.repl-panel--input .repl-panel-body {
+  display : flex;
+}
+
+.repl-panel--input .CodeMirror {
+  width: 100%;
 }
 
 .repl-panel--output .CodeMirror {
