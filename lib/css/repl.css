@@ -17,6 +17,10 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.15;
+  background-color: #282a36;
+  position: relative;
+  flex-direction: column;
+  flex: 1 0 auto;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -79,63 +83,46 @@
 }
 
 .repl .CodeMirror {
-  height: 100%;
+  height: auto;
   line-height: 1.5;
 }
 
 /* Ramda REPL specific
  ============================================================================ */
 
+.repl-panel-header {
+  background : #44475a;
+}
+
 .repl-title {
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.2em;
-  margin-left: 2em;
-  margin-bottom: 0.75em;
+  color: #f8f8f2;
+  font-weight: 800;
+  font-size: 1em;
+  line-height: 1.15;
+  padding: .5em .5em .4em 2em;
+  margin: 0;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 /* Input controls */
-.repl-btn-alt {
-  margin-top: 0.5em;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  font-size : 0.9em;
-  line-height: 1.5;
-  padding: 1px 5px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.repl-btn-reset {
-  margin-left: 1.5em;
-  background-color: #bf0000;
-  border: 1px solid #d43f3a;
-}
-
-.repl-btn-reset:hover {
-  background-color: #bf0000;
-  border-color: #ac2925;
-}
-
-.repl-btn-short-url {
-  background-color: #428bca;
-  border: 1px solid #357ebd;
-  margin-left: 0.5em
-}
-
-.repl-btn-short-url:hover {
-  background-color: #3276b1;
-  border-color: #285e8e;
-}
-
 .repl-url-out {
-  background-color: #282a36;
-  color: white;
+  background: #44475a;
+  color: #44475a;
   border: none;
-  font-size: 15px;
+  border-radius: 1px;
+  font-size: 1em;
   vertical-align: middle;
+  padding: .2em;
+  outline: none;
+}
+
+.repl-url-out:valid {
+  background: #f8f8f2;
+}
+
+.repl-url-out:invalid {
+  visibility: hidden;
 }
 
 /* Loading state */
@@ -185,24 +172,49 @@
 /* Output controls */
 .repl-btn {
   background-color: transparent;
-  border-color: transparent;
-  border-radius: 0;
-  color: #428bca;
+  border: 0;
+  color: #f8f8f2;
   cursor: pointer;
   font-weight: normal;
-  padding: 6px 12px;
+  font-size: 1em;
   flex: 0;
+  position: relative;
+  padding: .5em .5em .4em;
 }
 
-.repl-btn:hover,
-.repl-btn:focus {
-  color: #2a6496;
-  text-decoration: underline;
+.repl-btn::after,
+.repl-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #8be9fd;
+  opacity: 0;
+  transition: all 30ms ease-in-out;
+}
+
+
+.repl-btn:hover::after,
+.repl-btn:focus::after {
+  height: 4px;
+  opacity: 1;
 }
 
 .repl-btn:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+}
+
+.repl-btn-danger:hover,
+.repl-btn-danger:focus {
+  color: #ff5555;
+}
+
+.repl-btn-danger::after,
+.repl-btn-danger::after {
+  background: #ff5555;
 }
 
 /* Feedback */
@@ -221,20 +233,46 @@
 }
 
 .repl-console-log {
-  color: #888;
+  color: #6272a4;
 }
 
 .repl-error {
-  color: red;
+  color: #ff5555;
 }
 
 /* Layout */
+.repl {
+  height: 100%;
+  display: flex;
+}
+
+.repl-panels {
+  display: flex;
+  flex: 1 0 auto;
+  height : 100%;
+}
+
 .repl-panel {
   flex: 1 0 auto;
+  display : flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.repl-panel-header {
+  flex: 0 1 auto;
 }
 
 .repl-panel-body {
-  overflow-x: auto;
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+.repl-panel--input .repl-panel-body {
+  display : flex;
+}
+
+.repl-panel--input .CodeMirror {
   width: 100%;
 }
 
@@ -242,55 +280,41 @@
   margin-left: 0.75em;
 }
 
-.repl {
-  background-color: #282a36;
-  position: relative;
+.repl-midline {
+  background-color: #44475a;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 1;
 }
 
-@media (min-width: 991px) {
+/*
+ * Given a page less than 991px wide the panels will be stacked rather than
+ * positioned side-by-side
+ */
+@media (max-width: 991px) {
 
-  .repl {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    min-height: 100%;
+  .repl-midline {
+    display: none;
   }
 
   .repl-panels {
-    display: flex;
-    flex: 1 0 auto;
-  }
-
-  .repl-panel {
-    width: 50%;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .repl-panel--input {
-    display: flex;
     flex-direction: column;
   }
 
-  .repl-panel--input .repl-panel-body {
-    flex: 1 0 auto;
-    display: flex; /* Have the codemirror take the full height */
-    overflow-x: auto;
+  .repl-panel {
+    width: 100%;
+    min-height: 0;
   }
 
-  .repl-panel--input .CodeMirror {
-    height: auto;
-    flex: 1 0 auto;
+  .repl-panel--input {
+    flex: 0 0 auto;
   }
 
-  .repl-midline {
-    background-color: gray;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    z-index: 1;
+  .repl-panel--output {
+    flex: 0 1 auto;
   }
 
 }
