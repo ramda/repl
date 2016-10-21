@@ -1487,6 +1487,7 @@ var relativeModules = {};
 
 module.exports = exports["default"];
 }).call(this,require('_process'))
+
 },{"_process":594,"babel-runtime/helpers/typeof":155,"module":220,"path":589}],24:[function(require,module,exports){
 "use strict";
 
@@ -2404,6 +2405,7 @@ var File = function (_Store) {
 exports.default = File;
 exports.File = File;
 }).call(this,require('_process'))
+
 },{"../../helpers/resolve":23,"../../store":24,"../../util":40,"../internal-plugins/block-hoist":35,"../internal-plugins/shadow-functions":36,"../plugin-pass":38,"./logger":27,"./metadata":28,"./options/option-manager":32,"_process":594,"babel-code-frame":18,"babel-generator":53,"babel-helpers":75,"babel-runtime/core-js/get-iterator":138,"babel-runtime/core-js/object/assign":142,"babel-runtime/core-js/object/create":143,"babel-runtime/helpers/classCallCheck":152,"babel-runtime/helpers/inherits":153,"babel-runtime/helpers/possibleConstructorReturn":154,"babel-runtime/helpers/typeof":155,"babel-traverse":160,"babel-types":193,"babylon":197,"convert-source-map":231,"lodash/defaults":532,"path":589,"shebang-regex":672,"source-map":684}],27:[function(require,module,exports){
 "use strict";
 
@@ -2878,6 +2880,7 @@ var ConfigChainBuilder = function () {
 
 module.exports = exports["default"];
 }).call(this,require('_process'))
+
 },{"../../../helpers/resolve":23,"_process":594,"babel-runtime/core-js/object/assign":142,"babel-runtime/helpers/classCallCheck":152,"fs":220,"json5":358,"path":589,"path-exists":590,"path-is-absolute":591}],30:[function(require,module,exports){
 "use strict";
 
@@ -3506,6 +3509,7 @@ exports.default = OptionManager;
 OptionManager.memoisedPlugins = [];
 module.exports = exports["default"];
 }).call(this,require('_process'))
+
 },{"../../../api/node":20,"../../../helpers/merge":21,"../../../helpers/resolve":23,"../../plugin":39,"./build-config-chain":29,"./config":30,"./index":31,"./removed":34,"_process":594,"babel-messages":76,"babel-runtime/core-js/get-iterator":138,"babel-runtime/core-js/json/stringify":139,"babel-runtime/core-js/object/assign":142,"babel-runtime/helpers/classCallCheck":152,"babel-runtime/helpers/typeof":155,"lodash/clone":527,"lodash/cloneDeepWith":529,"path":589}],33:[function(require,module,exports){
 "use strict";
 
@@ -17384,6 +17388,7 @@ var TraversalContext = function () {
 exports.default = TraversalContext;
 module.exports = exports["default"];
 }).call(this,require('_process'))
+
 },{"./path":167,"_process":594,"babel-runtime/core-js/get-iterator":138,"babel-runtime/helpers/classCallCheck":152,"babel-types":193}],159:[function(require,module,exports){
 "use strict";
 
@@ -18525,6 +18530,7 @@ function evaluate() {
   }
 }
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{"babel-runtime/core-js/get-iterator":138,"babel-runtime/core-js/map":140,"babel-runtime/helpers/typeof":155}],166:[function(require,module,exports){
 "use strict";
 
@@ -34695,6 +34701,7 @@ function isnan (val) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{"base64-js":218,"ieee754":352,"isarray":355}],222:[function(require,module,exports){
 (function (process){
 'use strict';
@@ -34815,6 +34822,7 @@ module.exports.stripColor = stripAnsi;
 module.exports.supportsColor = supportsColor;
 
 }).call(this,require('_process'))
+
 },{"_process":594,"ansi-styles":16,"escape-string-regexp":344,"has-ansi":351,"strip-ansi":685,"supports-color":686}],223:[function(require,module,exports){
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
@@ -47374,6 +47382,7 @@ Object.defineProperty(exports, 'mapFileCommentRegex', {
 });
 
 }).call(this,require("buffer").Buffer)
+
 },{"buffer":221,"fs":220,"path":589}],232:[function(require,module,exports){
 require('../modules/web.dom.iterable');
 require('../modules/es6.string.iterator');
@@ -49739,6 +49748,7 @@ function createWritableStdioStream (fd) {
 exports.enable(load());
 
 }).call(this,require('_process'))
+
 },{"./debug":341,"_process":594,"fs":220,"net":220,"tty":688,"util":691}],343:[function(require,module,exports){
 'use strict';
 var repeating = require('repeating');
@@ -51755,6 +51765,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
+
 },{"_process":594}],354:[function(require,module,exports){
 'use strict';
 var numberIsNan = require('number-is-nan');
@@ -52140,6 +52151,7 @@ module.exports.matchToToken = function(match) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],358:[function(require,module,exports){
 // json5.js
 // Modern JSON. See README.md for details.
@@ -56038,6 +56050,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],461:[function(require,module,exports){
 var baseGetAllKeys = require('./_baseGetAllKeys'),
     getSymbols = require('./_getSymbols'),
@@ -61188,6 +61201,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
+
 },{"_process":594}],590:[function(require,module,exports){
 'use strict';
 var fs = require('fs')
@@ -61235,6 +61249,7 @@ module.exports.posix = posix;
 module.exports.win32 = win32;
 
 }).call(this,require('_process'))
+
 },{"_process":594}],592:[function(require,module,exports){
 /**
  * JavaScript beautifier
@@ -74598,6 +74613,7 @@ module.exports = rdom;
 },{"./tags":1}]},{},[])("/src/rdom")
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],662:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/regenerate v1.3.1 by @mathias | MIT license */
@@ -75809,6 +75825,7 @@ module.exports = rdom;
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],663:[function(require,module,exports){
 // Generated by `/scripts/character-class-escape-sets.js`. Do not edit.
 var regenerate = require('regenerate');
@@ -76817,6 +76834,7 @@ module.exports = function(pattern, flags) {
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],667:[function(require,module,exports){
 // regjsparser
 //
@@ -94652,6 +94670,7 @@ module.exports = (function () {
 })();
 
 }).call(this,require('_process'))
+
 },{"_process":594}],687:[function(require,module,exports){
 'use strict';
 module.exports = function toFastProperties(obj) {
@@ -95297,4 +95316,6 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":690,"_process":594,"inherits":689}]},{},[10,13]);
+
+},{"./support/isBuffer":690,"_process":594,"inherits":689}]},{},[10])
+//# sourceMappingURL=bundle.js.map
