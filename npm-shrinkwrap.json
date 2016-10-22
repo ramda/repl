@@ -1379,6 +1379,18 @@
       "from": "exit-hook@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/exit-hook/-/exit-hook-1.1.1.tgz"
     },
+    "exorcist": {
+      "version": "0.4.0",
+      "from": "exorcist@latest",
+      "resolved": "https://registry.npmjs.org/exorcist/-/exorcist-0.4.0.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "0.0.5",
+          "from": "minimist@0.0.5",
+          "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.5.tgz"
+        }
+      }
+    },
     "expand-brackets": {
       "version": "0.1.5",
       "from": "expand-brackets@>=0.1.4 <0.2.0",
@@ -2475,6 +2487,18 @@
       "from": "module-deps@>=4.0.2 <5.0.0",
       "resolved": "https://registry.npmjs.org/module-deps/-/module-deps-4.0.7.tgz"
     },
+    "mold-source-map": {
+      "version": "0.4.0",
+      "from": "mold-source-map@>=0.4.0 <0.5.0",
+      "resolved": "https://registry.npmjs.org/mold-source-map/-/mold-source-map-0.4.0.tgz",
+      "dependencies": {
+        "through": {
+          "version": "2.2.7",
+          "from": "through@>=2.2.7 <2.3.0",
+          "resolved": "https://registry.npmjs.org/through/-/through-2.2.7.tgz"
+        }
+      }
+    },
     "ms": {
       "version": "0.7.1",
       "from": "ms@0.7.1",
@@ -2489,6 +2513,11 @@
       "version": "1.4.0",
       "from": "natural-compare@>=1.4.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
+    },
+    "nave": {
+      "version": "0.5.3",
+      "from": "nave@>=0.5.1 <0.6.0",
+      "resolved": "https://registry.npmjs.org/nave/-/nave-0.5.3.tgz"
     },
     "ncp": {
       "version": "2.0.0",

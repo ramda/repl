@@ -26,18 +26,22 @@
     "url": "git://github.com/ramda/ramda.github.io.git"
   },
   "scripts": {
+    "build-js": "browserify -t [ babelify ] ./lib/js/main.js -o ./dist/bundle.js",
+    "watch-js": "watchify -t [ babelify ] ./lib/js/main.js -dvo 'exorcist ./dist/bundle.js.map > ./dist/bundle.js'",
+    "build-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/bundle.css ./lib/css/repl.css",
+    "watch-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' --watch -o ./dist/bundle.css ./lib/css/repl.css",
+    "watch": "npm run watch-css & npm run watch-js",
+    "minify": "npm run build-js && uglifyjs ./dist/bundle.js -o ./dist/bundle.js",
     "test": "mocha",
     "server": "http-server",
-    "lint": "eslint lib/js/*.js; eslint test/*.js",
-    "dev": "watchify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./dist/bundle.js -v",
-    "build": "browserify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./dist/bundle.js",
-    "style": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/bundle.css ./lib/css/repl.css"
+    "lint": "eslint lib/js/*.js; eslint test/*.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
     "codemirror": "^5.19.0",
     "cssnano": "^3.7.5",
     "eslint": "^3.7.0",
+    "exorcist": "^0.4.0",
     "fake-xml-http-request": "^1.4.0",
     "http-server": "^0.9.0",
     "jsdom": "^9.5.0",
@@ -48,6 +52,7 @@
     "postcss-cli": "^2.6.0",
     "postcss-import": "^8.1.2",
     "sinon": "^1.17.6",
+    "uglify-js": "^2.7.3",
     "watchify": "^3.7.0"
   }
 }
