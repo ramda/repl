@@ -11,11 +11,11 @@ A repl (read-eval-print-loop) for [Ramda](http://ramdajs.com/)
 
 You will find a collection of [npm run *](https://docs.npmjs.com/cli/run-script) scripts in [package.json](package.json):
 
-To run a simple server that will host the [index.html](index.html) file:
+To run a simple server that will host the [example/index.html](example/index.html) file:
 
 `npm run server`
 
-This will start serving the _repl_ at [localhost:8080](http://localhost:8080)
+This will start serving the _repl_ at [localhost:8080/example](http://localhost:8080/example)
 
 To build the JavaScript bundle:
 
