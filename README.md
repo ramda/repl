@@ -50,10 +50,14 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
   <tbody>
     <tr>
       <td>`apiURL`</td>
-      <td>Yes<td>
+      <td>Yes</td>
       <td>String</td>
       <td>A path to a [Google url-shortener]( https://developers.google.com/url-shortener/ ) service endpoint - this will require a specific API key, details [here](https://developers.google.com/url-shortener/v1/getting_started)</td>
-      <td>`'https://www.googleapis.com/urlshortener/v1/url?key=APIKEY'`</td>
+      <td>
+        <pre lang="js">
+"https://www.googleapis.com/urlshortener/v1/url?key=APIKEY"
+        </pre>
+      </td>
     </tr>
     <tr>
       <td>`returnUrl`</td>
