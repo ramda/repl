@@ -52,7 +52,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>`apiURL`</td>
       <td>Yes</td>
       <td>String</td>
-      <td>A path to a [Google url-shortener](https://developers.google.com/url-shortener/) service endpoint - this will require a specific API key, details [here](https://developers.google.com/url-shortener/v1/getting_started)</td>
+      <td>A path to a <a href="https://developers.google.com/url-shortener/">Google url-shortener</a> service endpoint - this will require a specific API key, details <a href="https://developers.google.com/url-shortener/v1/getting_started">here</a>td>
       <td>
         <pre lang="js">
 "https://www.googleapis.com/urlshortener/v1/url?key=APIKEY"
@@ -63,7 +63,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>`returnUrl`</td>
       <td>Yes</td>
       <td>String</td>
-      <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at `http://your-ramda-repl.com#code` and have the share feature redirect to `http://ramdajs.com/repl#code` should you wish.</td>
+      <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at <code>http://your-ramda-repl.com#code</code> and have the share feature redirect to <code>http://ramdajs.com/repl#code</code> should you wish.</td>
       <td>
         <pre lang="js">
 "http://ramdajs.com/repl/"
@@ -85,7 +85,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>`onChange`</td>
       <td>No</td>
       <td>Function</td>
-      <td>This is called with the _pre-compiled_ text from the input window whenever this text is changed. This can be used for updating the URL with a new query string, for example.</td>
+      <td>This is called with the <em>pre-compiled</em> text from the input window whenever this text is changed. This can be used for updating the URL with a new query string, for example.</td>
       <td>
         <pre lang="js">
 (code) => window.location.hash = URI.encode(code)
@@ -181,7 +181,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td>`expose`</td>
       <td>No</td>
       <td>Array of Strings</td>
-      <td>A list of method names on the `global` that you wish to expose globally. **Given this list is not provided all methods found on the `global` will be exposed**</td>
+      <td>A list of method names on the `global` that you wish to expose globally. <strong>Given this list is not provided all methods found on the `global` will be exposed</strong></td>
       <td>
         <pre lang="js">
 [
