@@ -49,10 +49,10 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
   </thead>
   <tbody>
     <tr>
-      <td>`apiURL`</td>
+      <td><code>apiURL</code></td>
       <td>Yes</td>
       <td>String</td>
-      <td>A path to a <a href="https://developers.google.com/url-shortener/">Google url-shortener</a> service endpoint - this will require a specific API key, details <a href="https://developers.google.com/url-shortener/v1/getting_started">here</a>td>
+      <td>A path to a <a href="https://developers.google.com/url-shortener/">Google url-shortener</a> service endpoint - this will require a specific API key, details <a href="https://developers.google.com/url-shortener/v1/getting_started">here</a></td>
       <td>
         <pre lang="js">
 "https://www.googleapis.com/urlshortener/v1/url?key=APIKEY"
@@ -60,7 +60,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       </td>
     </tr>
     <tr>
-      <td>`returnUrl`</td>
+      <td><code>returnUrl</code></td>
       <td>Yes</td>
       <td>String</td>
       <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at <code>http://your-ramda-repl.com#code</code> and have the share feature redirect to <code>http://ramdajs.com/repl#code</code> should you wish.</td>
@@ -71,10 +71,10 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       </td>
     </tr>
     <tr>
-      <td>`initialValue`</td>
+      <td><code>initialValue</code></td>
       <td>No</td>
       <td>String</td>
-      <td>Used to provide the initial code in the input panel. It overrides the default behaviour, which is to use the content of the `target` element.</td>
+      <td>Used to provide the initial code in the input panel. It overrides the default behaviour, which is to use the content of the <code>target</code> element.</td>
       <td>
         <pre lang="js">
 "identity(1)"
@@ -82,7 +82,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       </td>
     </tr>
     <tr>
-      <td>`onChange`</td>
+      <td><code>onChange</code></td>
       <td>No</td>
       <td>Function</td>
       <td>This is called with the <em>pre-compiled</em> text from the input window whenever this text is changed. This can be used for updating the URL with a new query string, for example.</td>
@@ -93,7 +93,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       </td>
     </tr>
     <tr>
-      <td>`ramdaScript`</td>
+      <td><code>ramdaScript</code></td>
       <td>Yes</td>
       <td>Object - see below</td>
       <td>A script description object used to defined where Ramda is sourced and how it is globally exposed</td>
@@ -107,10 +107,10 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       </td>
     </tr>
     <tr>
-      <td>`scripts`</td>
+      <td><code>scripts</code></td>
       <td>No</td>
       <td>Array of Objects - see below</td>
-      <td>A list of script description objects used to defined where other interesting libraries are sourced and how it is globally exposed</td>
+      <td>A list of script description objects used to defined where other interesting libraries are sourced and how they are globally exposed</td>
       <td>
         <pre lang="js">
 [
@@ -145,7 +145,7 @@ How the dynamically loaded scripts are made available can defined using objects 
   </thead>
   <tbody>
     <tr>
-      <td>`src` </td>
+      <td><code>src</code> </td>
       <td>Yes</td>
       <td>String</td>
       <td>A URL referencing a JavaScript file</td>
@@ -156,8 +156,8 @@ How the dynamically loaded scripts are made available can defined using objects 
       </td>
     </tr>
     <tr>
-      <td>`global`</td>
-      <td>Yes if `exposeAs` or `expose` are used </td>
+      <td><code>global</code></td>
+      <td>Yes if <code>exposeAs</code> or <code>expose</code> are used </td>
       <td> String </td>
       <td> A name of a global the the script will introduce</td>
       <td>
@@ -167,7 +167,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       </td>
     </tr>
     <tr>
-      <td>`exposeAs`</td>
+      <td><code>exposeAs</code></td>
       <td>No</td>
       <td>String</td>
       <td>The name of a global that will act as an alias to the global introduced by the script</td>
@@ -178,10 +178,10 @@ How the dynamically loaded scripts are made available can defined using objects 
       </td>
     </tr>
     <tr>
-      <td>`expose`</td>
+      <td><code>expose</code></td>
       <td>No</td>
       <td>Array of Strings</td>
-      <td>A list of method names on the `global` that you wish to expose globally. <strong>Given this list is not provided all methods found on the `global` will be exposed</strong></td>
+      <td>A list of method names on the <code>global</code> that you wish to expose globally. <strong>Given this list is not provided all methods found on the <code>global</code> will be exposed</strong></td>
       <td>
         <pre lang="js">
 [
