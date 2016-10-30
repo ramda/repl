@@ -62,7 +62,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at `http://your-ramda-repl.com#<code>` and have the share feature redirect to `http://ramdajs.com/repl#<code>` should you wish.</td>
       <td>
         <pre lang="js">
-          "http://ramdajs.com/repl/"
+"http://ramdajs.com/repl/"
         </pre>
       </td>
     </tr>
@@ -73,7 +73,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>Used to provide the initial code in the input panel. It overrides the default behaviour, which is to use the content of the `target` element.</td>
       <td>
         <pre lang="js">
-          "identity(1)"
+"identity(1)"
         </pre>
       </td>
     </tr>
@@ -84,7 +84,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>This is called with the _pre-compiled_ text from the input window whenever this text is changed. This can be used for updating the URL with a new query string, for example.</td>
       <td>
         <pre lang="js">
-          (code) => window.location.hash = URI.encode(code)
+(code) => window.location.hash = URI.encode(code)
         </pre>
       </td>
     </tr>
@@ -95,10 +95,10 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>A script description object used to defined where Ramda is sourced and how it is globally exposed</td>
       <td>
         <pre lang="js">
-          {
-            src    : "//cdn.jsdelivr.net/ramda/latest/ramda.min.js",
-            global : "R"
-          }
+{
+  src    : "//cdn.jsdelivr.net/ramda/latest/ramda.min.js",
+  global : "R"
+}
         </pre>
       </td>
     </tr>
@@ -109,13 +109,13 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>A list of script description objects used to defined where other interesting libraries are sourced and how it is globally exposed</td>
       <td>
         <pre lang="js">
-          [
-            {
-              src      :'//wzrd.in/standalone/sanctuary@latest',
-              global   : 'sanctuary',
-              exposeAs : 'S'
-            }
-          ]
+[
+  {
+    src      :'//wzrd.in/standalone/sanctuary@latest',
+    global   : 'sanctuary',
+    exposeAs : 'S'
+  }
+]
         </pre>
       </td>
     </tr>
@@ -147,7 +147,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td>A URL referencing a JavaScript file</td>
       <td>
         <pre lang="js">
-           "//cdn.jsdelivr.net/ramda/latest/ramda.min.js"
+"//cdn.jsdelivr.net/ramda/latest/ramda.min.js"
         </pre>
       </td>
     </tr>
@@ -158,7 +158,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td> A name of a global the the script will introduce</td>
       <td>
         <pre lang="js">
-          "R"
+"R"
         </pre>
       </td>
     </tr>
@@ -169,7 +169,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td>The name of a global that will act as an alias to the global introduced by the script</td>
       <td>
         <pre lang="js">
-          "RAMDA"
+"RAMDA"
         </pre>
       </td>
     </tr>
@@ -180,11 +180,11 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td>A list of method names on the `global` that you wish to expose globally. **Given this list is not provided all methods found on the `global` will be exposed**</td>
       <td>
         <pre lang="js">
-          [
-            "identity",
-            "map",
-            "filter"
-          ]
+[
+  "identity",
+  "map",
+  "filter"
+]
         </pre>
       </td>
     </tr>
