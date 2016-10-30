@@ -52,7 +52,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>`apiURL`</td>
       <td>Yes</td>
       <td>String</td>
-      <td>A path to a [https://developers.google.com/url-shortener/](Google url-shortener) service endpoint - this will require a specific API key, details [here](https://developers.google.com/url-shortener/v1/getting_started)</td>
+      <td>A path to a [Google url-shortener](https://developers.google.com/url-shortener/) service endpoint - this will require a specific API key, details [here](https://developers.google.com/url-shortener/v1/getting_started)</td>
       <td>
         <pre lang="js">
 "https://www.googleapis.com/urlshortener/v1/url?key=APIKEY"
@@ -63,7 +63,7 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
       <td>`returnUrl`</td>
       <td>Yes</td>
       <td>String</td>
-      <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at `http://your-ramda-repl.com#code` and have the share feature redirect to `http://ramdajs.com/repl#code` should you wish.</tdw>
+      <td>A URL (minus query string) that will be used with the url-shortening service to indicate where a sharable link will take user-agents. The current query string will be appended to this. This idea here is that you can have a REPL at `http://your-ramda-repl.com#code` and have the share feature redirect to `http://ramdajs.com/repl#code` should you wish.</td>
       <td>
         <pre lang="js">
 "http://ramdajs.com/repl/"
