@@ -1,5 +1,14 @@
 {
   "name": "ramda-repl",
+  "contributors": [{
+    "name": "Craig Dallimore",
+    "email": "",
+    "url": ""
+  }, {
+    "name": "Michael Hurley",
+    "email": "mh@buzzdecafe.com",
+    "url": "http://buzzdecafe.com"
+  }],
   "description": "Ramda + Ramda Fantasy + Sanctuary REPL",
   "version": "1.0.0",
   "dependencies": {
@@ -26,12 +35,13 @@
     "url": "git://github.com/ramda/ramda.github.io.git"
   },
   "scripts": {
-    "build-js": "browserify -t [ babelify ] ./lib/js/main.js -o ./dist/bundle.js",
-    "watch-js": "watchify -t [ babelify ] ./lib/js/main.js -dvo 'exorcist ./dist/bundle.js.map > ./dist/bundle.js'",
-    "build-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/bundle.css ./lib/css/repl.css",
-    "watch-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' --watch -o ./dist/bundle.css ./lib/css/repl.css",
+    "build": "npm run build-js; npm run build-css; npm run minify",
+    "build-js": "browserify -t [ babelify ] ./lib/js/main.js -o ./dist/ramdaRepl.js",
+    "watch-js": "watchify -t [ babelify ] ./lib/js/main.js -dvo 'exorcist ./dist/ramdaRepl.js.map > ./dist/ramdaRepl.js'",
+    "build-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' -o ./dist/ramdaRepl.css ./lib/css/repl.css",
+    "watch-css": "postcss -u postcss-import -u cssnano -u autoprefixer 'last 2 versions' --watch -o ./dist/ramdaRepl.css ./lib/css/repl.css",
     "watch": "npm run watch-css & npm run watch-js",
-    "minify": "npm run build-js && uglifyjs ./dist/bundle.js -o ./dist/bundle.js",
+    "minify": "npm run build-js && uglifyjs ./dist/ramdaRepl.js -o ./dist/ramdaRepl.min.js",
     "test": "mocha",
     "server": "http-server",
     "lint": "eslint lib/js/*.js; eslint test/*.js"
