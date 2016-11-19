@@ -127,7 +127,12 @@ RamdaREPL will do the following operations with respect to the target DOM Node:
 </table>
 
 
-The keys `ramdaScript` and `scripts` are used to organise the dynamically loaded scripts that will be available to the REPL, such as `ramda`, `ramda-sanctuary` and `ramda-fantasy`. Ramda is loaded first, as it is presumed that the other libraries will require it to be present before they can be included.
+The keys `ramdaScript` and `scripts` are used to organise the dynamically loaded scripts that will be available to the REPL, such as [Ramda][ramda], [Sanctuary][sanctuary], and [Ramda-Fantasy][ramda-fantasy].
+Ramda is loaded first, as it is presumed that the other libraries will require it to be present before they can be included.
+
+[ramda]: http://ramdajs.com/
+[ramda-fantasy]: https://github.com/ramda/ramda-fantasy
+[sanctuary]: https://sanctuary.js.org/
 
 Organising the scripts includes providing a reference to a URL where the script can be sourced - and adding in optional configuration for how globals will be made available.
 
