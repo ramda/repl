@@ -290,6 +290,41 @@
   z-index: 1;
 }
 
+.repl-icon {
+
+  font-family: sans-serif;
+  display: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  top: 0.5em;
+  right: 0.5em;
+  position: absolute;
+  color: #f8f8f2; /* Dracula white */
+  text-align: center;
+  line-height: 1em;
+  font-style: normal;
+  cursor: default;
+
+}
+
+.repl-icon--danger {
+  background: #ff5555; /* Dracula red */
+}
+
+.repl-icon--warning {
+  background: #ffb86c; /* Dracula orange */
+  color: #44475a;      /* Dracula dark blue */
+}
+
+.repl--no-ramda .repl-icon--danger {
+  display: block;
+}
+
+.repl--missing-script .repl-icon--warning {
+  display: block;
+}
+
 /*
  * Given a page less than 991px wide the panels will be stacked rather than
  * positioned side-by-side

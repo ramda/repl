@@ -1,23 +1,45 @@
 import sinon from 'sinon';
+import assert from 'assert';
 import mock from 'mock-require';
+import { Either } from 'ramda-fantasy';
 
 describe('Load scripts', function() {
 
-  it('will load Ramda before any other script', function() {
+  let config;
+  let loadStub = sinon.stub();
 
-    const config = {
+  beforeEach(function() {
+
+    config = {
       ramdaScript : { src : '/fake/ramda.js' },
       scripts : [
-        { src : '/fake/jamda.js' }
+        { src : '/fake/san.js' },
+        { src : '/fake/fan.js' }
       ]
     };
 
-    const stub = sinon.stub();
+    // This will intercept the script loader, providing a mock that we can use to influence the
+    // code under test.
+    // It is a module providing a function that takes a url and a node-style callback:
+    // `loadScript(url, err => ...);`
+    mock('load-script', loadStub);
 
-    // Here we intercept the script loader. It is a function that takes a url and a node-style
-    // callback. We will assert that the first script loaded is ramda, and that the second
-    // script is not loaded until the ramda callback had been fired.
-    mock('load-script', stub);
+  });
+
+  afterEach(function() {
+    loadStub.reset();
+  });
+
+  it('returns a Future', function() {
+
+    const loadScripts = require('../lib/js/load-scripts');
+    const Future      = require('ramda-fantasy').Future;
+
+    assert(loadScripts.default(config) instanceof Future)
+
+  });
+
+  it('calls the failure path if Ramda doesn\'t load', function() {
 
     const loadScripts = require('../lib/js/load-scripts');
 
@@ -26,17 +48,58 @@ describe('Load scripts', function() {
 
     loadScripts.default(config).fork(onError, onSuccess);
 
-    sinon.assert.calledWith(stub, config.ramdaScript.src);
+    // At this point the script loader should have started loading the Ramda script only.
+    sinon.assert.calledWith(loadStub, config.ramdaScript.src);
+    sinon.assert.calledOnce(loadStub);
 
-    sinon.assert.calledOnce(stub);
+    // Now we can invoke the callback, simulating the 'onload' of the Ramda script. In this case
+    // we give it an error to mimic Ramda failing to load:
+    loadStub.callArgWith(1, Error('Luke 15:4'));
+
+    // It will not go on to load any more scripts as they probably would rely on Ramda.
+    sinon.assert.calledOnce(loadStub);
+
+    sinon.assert.calledWith(onError, Either.Left(config.ramdaScript));
+
+  });
+
+  it('will load other scripts once Ramda has loaded', function() {
+
+    const loadScripts = require('../lib/js/load-scripts');
+
+    loadScripts.default(config).fork(sinon.spy(), sinon.spy());
+
+    // At this point the script loader should have started loading the Ramda script only.
+    sinon.assert.calledWith(loadStub, config.ramdaScript.src);
+    sinon.assert.calledOnce(loadStub);
 
     // Now we can invoke the callback, simulating the 'onload' of the Ramda script.
-    stub.callArg(1)
-    sinon.assert.calledWith(stub, config.scripts[0].src);
+    // In this case no error is given, so it can continue to load other scripts.
+    loadStub.callArgWith(1);
 
-    // We can also confirm that if all the scripts loaded correctly, the success callback is fired.
-    stub.callArg(1)
-    sinon.assert.called(onSuccess);
+    sinon.assert.calledWith(loadStub, config.scripts[0].src);
+    sinon.assert.calledWith(loadStub, config.scripts[1].src);
+
+  });
+
+  it('will take the success path even if other scripts fail to load', function() {
+
+    const loadScripts = require('../lib/js/load-scripts');
+
+    const onError   = sinon.spy();
+    const onSuccess = sinon.spy();
+
+    loadScripts.default(config).fork(onError, onSuccess);
+
+    loadStub.callArgWith(1); // Loaded Ramda
+    loadStub.callArgWith(1, Error('No san')); // Failed to load `san.js`
+    loadStub.callArgWith(1, Error('No fan')); // Loaded `fan.js`
+
+    sinon.assert.calledWith(onSuccess, [
+      Either.Right(config.ramdaScript),
+      Either.Left(config.scripts[0]),
+      Either.Left(config.scripts[1])
+    ]);
 
   });
 
