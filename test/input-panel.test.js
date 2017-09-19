@@ -63,6 +63,25 @@ describe('Input panel', function() {
 
   });
 
+  it('should compile JS codes with generator syntax', function() {
+
+    const input = bindInputPanel({
+      input: inputEl,
+      evalError: errMsgEl,
+      output,
+      delay: 5
+    });
+
+    input.setValue('function* a() { yield 1; }; a().next();');
+
+    clock.tick(10); // debounce
+
+    assert.equal('', errMsgEl.textContent);
+    sinon.assert.calledOnce(output.setValue);
+    assert.deepEqual(JSON.parse(output.setValue.args[0][0]), {done: false, value: 1});
+
+  });
+
   it('should set error messages if a compile fails', function() {
 
     const input = bindInputPanel({
