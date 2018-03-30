@@ -19,7 +19,7 @@ describe('Clicking the "pretty" button', function() {
   it('should instruct the "output" CodeMirror to reformat the text', function() {
 
     const unformattedCode = "['a', 'b', 'c,']";
-    const formattedCode = `[\n    "a",\n    "b",\n    "c,"\n]`;
+    const formattedCode = '[\n    "a",\n    "b",\n    "c,"\n]';
 
     output = {
       setValue : sinon.spy(),

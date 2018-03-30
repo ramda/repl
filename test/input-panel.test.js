@@ -100,6 +100,25 @@ describe('Input panel', function() {
 
   });
 
+  it('should set verbose error message if a compile fails when trying to redeclaring an imported function', function() {
+
+    const input = bindInputPanel({
+      input: inputEl,
+      evalError: errMsgEl,
+      output,
+      delay: 0
+    });
+
+    const fn = 'test';
+    input.setValue(`var ${fn};`);
+
+    clock.tick(10); // debounce
+
+    sinon.assert.notCalled(output.setValue);
+    assert.equal(`ramda: Cannot redeclare "${fn}" that has already been imported from Ramda`, errMsgEl.textContent);
+
+  });
+
   it('clears error messages before a compile', function() {
 
     errMsgEl.textContent = '♈';
