@@ -2,14 +2,17 @@ import assert from 'assert';
 import jsdom from 'jsdom';
 import R from 'ramda';
 import sinon from 'sinon';
-import bindInputPanel from '../lib/js/input-panel';
+
+// Provide a way to push time forwards (as the input is debounced).
+const clock = sinon.useFakeTimers();
+const bindInputPanel = require('../lib/js/input-panel').default;
+
 
 describe('Input panel', function() {
 
   let errMsgEl,
     inputEl,
-    output,
-    clock;
+    output;
 
   beforeEach(function() {
 
@@ -34,9 +37,6 @@ describe('Input panel', function() {
     // these to exist.
     // https://github.com/tmpvar/jsdom/issues/317
     doc.body.createTextRange = () => doc.querySelector('.mock');
-
-    // Provide a way to push time forwards (as the input is debounced).
-    clock = sinon.useFakeTimers();
 
     errMsgEl = doc.querySelector('.err-msg');
     inputEl = doc.querySelector('.input');
