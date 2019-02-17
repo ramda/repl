@@ -136,6 +136,36 @@ describe('reporter', function() {
 
         });
 
+        it('will display stringified array with: undefined, NaN, Infinity ', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          const arr = [undefined, NaN, Infinity, -Infinity];
+
+          consoleMock[method](arr);
+
+          assert.equal('[undefined,NaN,Infinity,-Infinity]', logEl.textContent);
+
+        });
+
+        it('will display stringified object with: undefined, NaN, Infinity ', function() {
+
+          reporter.main({
+            consoleLogElement : logEl,
+            consoleRef : consoleMock
+          });
+
+          const obj = {a: undefined, b: NaN, c:Infinity, d:-Infinity};
+
+          consoleMock[method](obj);
+
+          assert.equal('{"a":undefined,"b":NaN,"c":Infinity,"d":-Infinity}', logEl.textContent);
+
+        });
+
       });
 
     });
