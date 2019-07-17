@@ -134,9 +134,9 @@ Ramda is loaded first, as it is presumed that the other libraries will require i
 [ramda-fantasy]: https://github.com/ramda/ramda-fantasy
 [sanctuary]: https://sanctuary.js.org/
 
-Organising the scripts includes providing a reference to a URL where the script can be sourced - and adding in optional configuration for how globals will be made available.
+Organising the scripts includes providing a reference to a URL where the script can be sourced - and adding in an optional configuration for how globals will be made available.
 
-How the dynamically loaded scripts are made available can defined using objects with the following keys:
+How the dynamically loaded scripts are made available can be defined using objects with the following keys:
 
 <table>
   <thead>
@@ -164,7 +164,7 @@ How the dynamically loaded scripts are made available can defined using objects 
       <td><code>global</code></td>
       <td>Yes if <code>exposeAs</code> or <code>expose</code> are used </td>
       <td> String </td>
-      <td> A name of a global the the script will introduce</td>
+      <td> A name of a global the script will introduce</td>
       <td>
         <pre lang="js">
 "R"
