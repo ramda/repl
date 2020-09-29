@@ -1,7 +1,7 @@
 {
   "name": "ramda-repl",
   "description": "Ramda + Ramda Fantasy + Sanctuary REPL",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dependencies": {
     "babel-core": "6.16.0",
     "babel-polyfill": "6.16.0",

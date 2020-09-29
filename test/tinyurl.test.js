@@ -4,7 +4,7 @@ import R from 'ramda';
 import sinon from 'sinon';
 import FakeXHR from 'fake-xml-http-request';
 
-import bindShortUrlButton from '../lib/js/googl';
+import bindShortUrlButton from '../lib/js/tinyurl';
 
 describe('Clicking the "Make short URL" button', function() {
 
@@ -61,9 +61,9 @@ describe('Clicking the "Make short URL" button', function() {
     const request = R.head(requests);
 
     assert.equal(1, requests.length);
-    assert(R.contains(global.location.hash, request.requestBody));
-    assert(R.contains(returnUrl, request.requestBody));
-    assert(R.contains(apiUrl, request.url));
+    const fullRamdaUrl = encodeURIComponent(`${returnUrl}${global.location.hash}`);
+    const expectedUrl = `${apiUrl}?url=${fullRamdaUrl}`;
+    assert(R.equals(expectedUrl, request.url));
 
   });
 
@@ -96,11 +96,11 @@ describe('Clicking the "Make short URL" button', function() {
     btnMakeShortUrl.click();
 
     const request = R.head(requests);
-    const responseBody = { id: 'ramda'};
+    const responseBody = 'ramda';
 
-    request.respond(200, { 'Content-Type': 'text/plain' }, JSON.stringify(responseBody));
+    request.respond(200, { 'Content-Type': 'text/plain' }, responseBody);
 
-    assert.equal(responseBody.id, urlOut.value);
+    assert.equal(responseBody, urlOut.value);
 
   });
 
