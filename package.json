@@ -41,7 +41,7 @@
     "autoprefixer": "^6.5.0",
     "codemirror": "^5.19.0",
     "cssnano": "^3.7.5",
-    "eslint": "^3.7.0",
+    "eslint": "^4.18.2",
     "exorcist": "^0.4.0",
     "fake-xml-http-request": "^1.4.0",
     "http-server": "^0.9.0",
