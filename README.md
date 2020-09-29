@@ -215,7 +215,13 @@ This will start serving the _repl_ at [localhost:8080/example](http://localhost:
 To build the JavaScript bundle:
 
 ```
-npm run build
+npm run build-js
+```
+
+To build the CSS bundle:
+
+```
+npm run build-css
 ```
 
 #### Watch modes
